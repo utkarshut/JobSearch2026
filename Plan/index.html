@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Prep Roadmap 2026 — Utkarsh Bhardwaj</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #14171f;
+    --surface2: #1a1e28;
+    --border: #252a38;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --accent3: #2dd4a8;
+    --warn: #f7934f;
+    --danger: #f75f5f;
+    --text: #e2e6f0;
+    --muted: #7a8299;
+    --tag-bg: #1e2535;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  /* Sidebar nav */
+  #sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    z-index: 100;
+    padding: 28px 0 40px;
+  }
+  .nav-logo {
+    padding: 0 22px 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .nav-logo .name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); letter-spacing: .5px; }
+  .nav-logo .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .nav-section-label { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 22px 4px; }
+  .nav-item {
+    display: block;
+    padding: 7px 22px;
+    font-size: 12.5px;
+    color: var(--muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all .15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-item:hover, .nav-item.active { color: var(--accent); border-left-color: var(--accent); background: rgba(79,142,247,.06); }
+
+  /* Main content */
+  #main {
+    margin-left: 240px;
+    padding: 0 48px 80px;
+    max-width: 1080px;
+  }
+  .hero {
+    padding: 52px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 52px;
+  }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 38px; line-height: 1.15; color: #fff; margin-bottom: 14px; }
+  .hero p { color: var(--muted); max-width: 600px; font-size: 15px; }
+  .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .pill { background: var(--tag-bg); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: var(--muted); }
+  .pill.green { color: var(--accent3); border-color: rgba(45,212,168,.25); background: rgba(45,212,168,.06); }
+  .pill.blue { color: var(--accent); border-color: rgba(79,142,247,.25); background: rgba(79,142,247,.06); }
+  .pill.orange { color: var(--warn); border-color: rgba(247,147,79,.25); background: rgba(247,147,79,.06); }
+
+  /* Sections */
+  .section { margin-bottom: 64px; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
+  .section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 22px; color: #fff; }
+
+  /* Cards */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 14px; }
+  .card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card p, .card li { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+  .card ul, .card ol { padding-left: 18px; }
+  .card li { margin-bottom: 5px; }
+  .card li strong { color: var(--text); }
+
+  /* Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  @media(max-width: 780px) { .two-col { grid-template-columns: 1fr; } #sidebar { display: none; } #main { margin-left: 0; padding: 0 20px 60px; } }
+
+  /* Status badges */
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+  .badge-green { background: rgba(45,212,168,.12); color: var(--accent3); }
+  .badge-blue { background: rgba(79,142,247,.12); color: var(--accent); }
+  .badge-orange { background: rgba(247,147,79,.12); color: var(--warn); }
+  .badge-red { background: rgba(247,95,95,.12); color: var(--danger); }
+  .badge-purple { background: rgba(124,92,252,.12); color: var(--accent2); }
+
+  /* Phase timeline */
+  .phase { border-left: 2px solid var(--border); padding-left: 24px; margin-bottom: 36px; position: relative; }
+  .phase::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .phase-label { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .phase-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 4px; }
+  .phase-duration { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+
+  /* Q&A blocks */
+  .qa-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+  .qa-level { display: flex; gap: 8px; padding: 12px 18px 0; }
+  .qa-q { padding: 8px 18px 4px; font-size: 13.5px; color: var(--text); font-weight: 500; }
+  .qa-hint { padding: 4px 18px 14px; font-size: 12.5px; color: var(--muted); font-style: italic; }
+
+  /* Code block */
+  .code-block { background: #0a0c11; border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin: 10px 0; font-family: 'Courier New', monospace; font-size: 12.5px; color: #a8b4d0; line-height: 1.6; overflow-x: auto; }
+  .code-block .kw { color: #7c5cfc; }
+  .code-block .fn { color: #4f8ef7; }
+  .code-block .str { color: #2dd4a8; }
+  .code-block .cm { color: #445; font-style: italic; }
+
+  /* Topic grid */
+  .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media(max-width: 700px) { .topic-grid { grid-template-columns: 1fr 1fr; } }
+  .topic-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+  .topic-item .t-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .topic-item .t-priority { font-size: 11px; }
+
+  /* Daily schedule */
+  .day-row { display: flex; gap: 12px; margin-bottom: 8px; align-items: flex-start; }
+  .day-time { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; color: var(--accent); min-width: 80px; padding-top: 2px; }
+  .day-content { flex: 1; font-size: 13.5px; color: var(--muted); }
+  .day-content strong { color: var(--text); }
+
+  /* Highlight box */
+  .highlight { background: rgba(79,142,247,.07); border: 1px solid rgba(79,142,247,.2); border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
+  .highlight.orange { background: rgba(247,147,79,.07); border-color: rgba(247,147,79,.2); }
+  .highlight.green { background: rgba(45,212,168,.07); border-color: rgba(45,212,168,.2); }
+  .highlight.red { background: rgba(247,95,95,.07); border-color: rgba(247,95,95,.2); }
+  .highlight p, .highlight li { font-size: 13.5px; color: var(--muted); }
+  .highlight strong { color: var(--text); }
+  .highlight-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .highlight.orange .highlight-title { color: var(--warn); }
+  .highlight.green .highlight-title { color: var(--accent3); }
+  .highlight.red .highlight-title { color: var(--danger); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--surface2); color: var(--muted); font-weight: 600; font-size: 11px; letter-spacing: .8px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+  td strong { color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+
+  h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin: 20px 0 10px; }
+  h4 { font-size: 13px; font-weight: 600; color: var(--accent); margin: 16px 0 8px; text-transform: uppercase; letter-spacing: .6px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .emoji { font-size: 16px; }
+  strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<nav id="sidebar">
+  <div class="nav-logo">
+    <div class="name">UTKARSH BHARDWAJ</div>
+    <div class="sub">Interview Prep Roadmap 2026</div>
+  </div>
+  <div class="nav-section-label">Sections</div>
+  <a class="nav-item" href="#s1">1. Resume Analysis</a>
+  <a class="nav-item" href="#s2">2. Preparation Phases</a>
+  <a class="nav-item" href="#s3">3. Interview Questions</a>
+  <a class="nav-item" href="#s4">4. Hands-On Practice</a>
+  <a class="nav-item" href="#s5">5. Coding Prep (High ROI)</a>
+  <a class="nav-item" href="#s6">6. Case Studies</a>
+  <a class="nav-item" href="#s7">7. Mock Interview Coaching</a>
+  <a class="nav-item" href="#s8">8. Weak Area Plan</a>
+  <a class="nav-item" href="#s9">9. Daily Practice Plan</a>
+</nav>
+
+<!-- Main Content -->
+<main id="main">
+
+  <div class="hero">
+    <div class="hero-eyebrow">Senior Angular + Full Stack — 35+ LPA Target</div>
+    <h1>Interview Preparation<br>Roadmap 2026</h1>
+    <p>Built from your resume, your actual experience, and 2026 India hiring market realities. High-ROI, no noise.</p>
+    <div class="hero-pills">
+      <span class="pill green">10 Years Experience</span>
+      <span class="pill blue">Angular v4–v20</span>
+      <span class="pill blue">Micro Frontends</span>
+      <span class="pill orange">35+ LPA Target</span>
+      <span class="pill">Bengaluru Market</span>
+      <span class="pill">Product + Enterprise</span>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 1: RESUME ANALYSIS -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Resume-Based Interview Analysis</span>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><span class="badge badge-green">STRONG</span> Your Top Strengths</div>
+        <ul>
+          <li><strong>Angular depth v4–v20</strong> — an upgrade journey this long is rare and highly credible</li>
+          <li><strong>Micro Frontend with Module Federation</strong> — very senior signal, few candidates have production MFE experience</li>
+          <li><strong>Concrete metrics</strong> — 35% perf gain, 69% build time, 95% HMR — interviewers love these</li>
+          <li><strong>Scrum Master + Tech Lead combo</strong> — differentiates from pure-IC candidates at senior level</li>
+          <li><strong>AI tooling experience</strong> — Sprint Sense, LLM APIs — strong 2026 differentiator</li>
+          <li><strong>Real enterprise clients</strong> — Halliburton/KOC/ONGC signals production gravity</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge badge-red">WATCH</span> Weak / Risky Areas</div>
+        <ul>
+          <li><strong>Backend depth</strong> — you contributed to Java microservices but did not own them; be precise about this</li>
+          <li><strong>Kubernetes</strong> — you listed it as "familiar"; don't let interviewers probe deeply here</li>
+          <li><strong>System Design breadth</strong> — strong on frontend architecture, weaker on distributed systems</li>
+          <li><strong>Signals / Standalone Components</strong> — added to resume for ATS; prep these so they're genuine</li>
+          <li><strong>Data structures / algorithms</strong> — after 10 years in enterprise, these may be rusty</li>
+          <li><strong>Cassandra / MongoDB</strong> — listed in skills but Infosys-era only; be ready to say "used at Infosys, not deep since"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title"><span class="badge badge-blue">EXPECT</span> Deep-Dive Topics</div>
+        <ul>
+          <li>Angular Change Detection (OnPush, zones, Signals)</li>
+          <li>RxJS operators and memory leak prevention</li>
+          <li>Module Federation — host/remote setup, shared deps</li>
+          <li>Performance debugging on large tree/grid data</li>
+          <li>Angular upgrade strategy — how you managed v6→v20</li>
+          <li>CI/CD and code quality gates setup</li>
+          <li>REST API design (frontend consumer perspective)</li>
+          <li>Scrum facilitation and how you handled team conflicts</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge badge-orange">CAUTION</span> Don't Overclaim Here</div>
+        <ul>
+          <li><strong>Kubernetes orchestration</strong> — say: "familiar with K8s concepts, worked within existing pipelines"</li>
+          <li><strong>Java microservices ownership</strong> — say: "collaborated with Java teams on API contracts and integration"</li>
+          <li><strong>PostgreSQL/JSONB deep DBA work</strong> — say: "worked with JSONB schemas in queries, not DBA-level tuning"</li>
+          <li><strong>AWS</strong> — say: "used AWS services for deployment, not cloud architecture design"</li>
+          <li><strong>React</strong> — say: "integrated React into MFE shell, not primary React engineer"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight orange">
+      <div class="highlight-title">⚡ Key Positioning Insight</div>
+      <p>Your resume reads as a <strong>senior platform engineer who owns the frontend</strong> and is a <strong>credible full-stack collaborator</strong>. This is a genuinely strong profile for 2026 India at 35+ LPA. The risk is interviewers trying to pull you into Java/cloud architect territory — your job is to anchor conversations back to your platform engineering and Angular leadership story.</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 2: PHASE-WISE ROADMAP -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Phase-Wise Preparation Roadmap</span>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase 1 — Week 1–2</div>
+      <div class="phase-title">🔥 Highest ROI: Angular Core Mastery</div>
+      <div class="phase-duration">Priority: CRITICAL · Expected Interview Probability: 95%</div>
+      <div class="card">
+        <ul>
+          <li><strong>Change Detection Strategy:</strong> Default vs OnPush, when zones get bypassed, ChangeDetectorRef.detectChanges(), markForCheck(). Know why OnPush matters at scale.</li>
+          <li><strong>Signals (Angular 17+):</strong> signal(), computed(), effect() — reactive primitives. How they replace zone-based reactivity. Effect cleanup. When to prefer Signals vs RxJS Subject.</li>
+          <li><strong>Standalone Components:</strong> What they remove (NgModule), how imports/providers work, bootstrapApplication(), ENVIRONMENT_INITIALIZER.</li>
+          <li><strong>Lazy Loading:</strong> loadChildren, loadComponent (standalone routes), preloading strategies (PreloadAllModules, custom). How this affects build chunks.</li>
+          <li><strong>RxJS core:</strong> switchMap, mergeMap, concatMap, exhaustMap — know when to use each. takeUntil for unsubscribing. shareReplay, BehaviorSubject vs Subject. Common memory leak patterns.</li>
+        </ul>
+        <div class="highlight green" style="margin-top:14px">
+          <div class="highlight-title">Senior expectation</div>
+          <p>You should be able to explain not just "what" but "why" — e.g., "I used OnPush + virtual scrolling together because even with OnPush, each visible row still triggers CD on each emission. Virtual scrolling reduces DOM nodes, OnPush reduces CD cycles per node."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase 2 — Week 2–3</div>
+      <div class="phase-title">🏗️ Architecture: Micro Frontends + Module Federation</div>
+      <div class="phase-duration">Priority: HIGH · Expected Interview Probability: 80%</div>
+      <div class="card">
+        <ul>
+          <li><strong>Module Federation basics:</strong> host vs remote, exposes/remotes config, shared dependencies and version negotiation</li>
+          <li><strong>Shared runtime challenge:</strong> How you share Angular, RxJS, shared state across MFEs without duplication</li>
+          <li><strong>Independent deployment:</strong> How CI/CD works when you have 4+ apps deploying separately</li>
+          <li><strong>Communication between MFEs:</strong> CustomEvents, shared state libraries, message bus patterns</li>
+          <li><strong>Shell app responsibilities:</strong> Routing, auth guard, shared services, layout</li>
+          <li><strong>React-in-Angular shell:</strong> Web components wrapper pattern or custom element approach</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase 3 — Week 3–4</div>
+      <div class="phase-title">⚡ Performance Engineering Stories</div>
+      <div class="phase-duration">Priority: HIGH · Expected Interview Probability: 85%</div>
+      <div class="card">
+        <ul>
+          <li><strong>Virtual scrolling:</strong> CDK VirtualScrollViewport, itemSize, how it avoids DOM overload with 100k+ nodes</li>
+          <li><strong>Tree structure optimization:</strong> Lazy loading child nodes on expand, not rendering collapsed subtrees</li>
+          <li><strong>Build optimization:</strong> What module consolidation means, how Webpack module graph gets pruned, what caused 69% build time gain</li>
+          <li><strong>Angular DevTools:</strong> How to profile change detection cycles, find components triggering excess CD</li>
+          <li><strong>TrackBy in ngFor:</strong> Why it matters with large lists, what identity functions look like</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase 4 — Week 4–5</div>
+      <div class="phase-title">🔌 Full Stack: APIs, PostgreSQL, Redis Basics</div>
+      <div class="phase-duration">Priority: MEDIUM · Expected Interview Probability: 65%</div>
+      <div class="card">
+        <ul>
+          <li><strong>REST API design:</strong> HTTP verbs, status codes, pagination (offset vs cursor-based), versioning</li>
+          <li><strong>PostgreSQL JSONB basics:</strong> -&gt; vs -&gt;&gt; operators, GIN indexes, when JSONB is better than normalized columns</li>
+          <li><strong>Redis caching concepts:</strong> Cache-aside pattern, TTL, cache invalidation, when NOT to cache</li>
+          <li><strong>Async processing:</strong> Why async jobs (message queues / async APIs) vs synchronous calls for heavy operations</li>
+          <li><strong>Java/JAX-RS basics:</strong> @GET/@POST annotations, @PathParam/@QueryParam, JAX-RS vs Spring Boot distinction</li>
+        </ul>
+        <div class="highlight" style="margin-top:14px">
+          <div class="highlight-title">Depth calibration</div>
+          <p>For these topics, you need <strong>conceptual fluency</strong>, not DBA/backend-engineer depth. Be able to answer "how does Redis help your Angular app load faster?" You don't need to explain Redis Sentinel.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase 5 — Week 5–6</div>
+      <div class="phase-title">💻 Coding + DSA (Targeted)</div>
+      <div class="phase-duration">Priority: MEDIUM · Expected Interview Probability: 60–70%</div>
+      <div class="card">
+        <ul>
+          <li>Focus only on arrays, strings, hashmaps, two pointers, sliding window — see Section 5 for exact questions</li>
+          <li>Tree traversal (BFS/DFS) — relevant because you work with hierarchical tree data structures</li>
+          <li>Avoid DP, graphs, advanced math — low ROI for senior Angular/full-stack roles in India</li>
+          <li>Product companies (Flipkart, Swiggy, Juspay, Razorpay) ask DSA; enterprise/service firms (LTTS-type, Infosys) typically don't</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label">Phase 6 — Week 6+</div>
+      <div class="phase-title">🎯 Mock Interviews + Communication Polish</div>
+      <div class="phase-duration">Priority: HIGH · Ongoing</div>
+      <div class="card">
+        <ul>
+          <li>Run at least 3 full mock interviews with a peer or out loud to yourself</li>
+          <li>Practice your 3 core stories: performance optimization, MFE architecture, Angular upgrade</li>
+          <li>Nail your "tell me about yourself" — 90 seconds, crisp, hits key differentiators</li>
+          <li>Prepare honest, calibrated answers for questions about backend/cloud depth</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 3: INTERVIEW QUESTIONS -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Most Important Interview Questions</span>
+    </div>
+
+    <h3>🔵 Angular Change Detection</h3>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-green">BEGINNER</span></div>
+      <div class="qa-q">What is Angular's Change Detection and what triggers it?</div>
+      <div class="qa-hint">✅ Expected: Mention zone.js, async events (clicks, XHR, timers), how Angular walks the component tree from root to leaf.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-blue">INTERMEDIATE</span></div>
+      <div class="qa-q">What is OnPush Change Detection? When would you use it and what are its gotchas?</div>
+      <div class="qa-hint">✅ Expected: Input references must change (not mutate), async pipe triggers CD automatically, manual markForCheck() / detectChanges() when needed. Gotcha: shared mutable state silently breaks OnPush.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-orange">SENIOR</span></div>
+      <div class="qa-q">How do Angular Signals change the change detection model? What's the long-term direction for zone.js?</div>
+      <div class="qa-hint">✅ Expected: Signals are fine-grained reactive — only components that read a signal re-render. Zone.js will become optional (zoneless mode). effect() replaces some RxJS patterns. computed() is memoized. The goal is signal-based components with no zone overhead.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-red">TRICKY FOLLOW-UP</span></div>
+      <div class="qa-q">If you have OnPush on a component but it still updates on every tick, what's likely wrong?</div>
+      <div class="qa-hint">✅ Expected: A parent component without OnPush is triggering CD that cascades down. Or a shared mutable object is being mutated (not replaced). Or an observable is emitting and async pipe is triggering markForCheck.</div>
+    </div>
+
+    <hr class="divider">
+
+    <h3>🟣 RxJS</h3>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-green">BEGINNER</span></div>
+      <div class="qa-q">What's the difference between Subject, BehaviorSubject, and ReplaySubject?</div>
+      <div class="qa-hint">✅ Expected: Subject — no initial value, late subscribers miss emissions. BehaviorSubject — holds latest value, new subscribers get it immediately. ReplaySubject — buffers N values for late subscribers.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-blue">INTERMEDIATE</span></div>
+      <div class="qa-q">switchMap vs mergeMap vs concatMap vs exhaustMap — when would you use each?</div>
+      <div class="qa-hint">✅ Expected: switchMap cancels previous (search typeahead). mergeMap runs all concurrently (parallel requests). concatMap queues (ordered processing). exhaustMap ignores new while active (submit button). This is a very common senior question.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-orange">SENIOR</span></div>
+      <div class="qa-q">Walk me through how you prevent memory leaks in RxJS subscriptions at scale in your platform.</div>
+      <div class="qa-hint">✅ Expected: takeUntil with a destroy$ Subject, async pipe in templates (auto-unsubscribes), take(1) for one-shot calls, Angular's DestroyRef with takeUntilDestroyed() in newer versions.</div>
+    </div>
+
+    <hr class="divider">
+
+    <h3>🟠 Micro Frontends</h3>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-green">BEGINNER</span></div>
+      <div class="qa-q">Why did you choose Micro Frontend architecture for your platform?</div>
+      <div class="qa-hint">✅ Expected: Independent team deployments, separate release cycles, different teams owning different app sections, avoid monolith bottlenecks in CI/CD.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-blue">INTERMEDIATE</span></div>
+      <div class="qa-q">How do you handle shared dependencies like Angular and RxJS across MFE remotes?</div>
+      <div class="qa-hint">✅ Expected: The "shared" config in Module Federation — you define singletons (singleton: true, strictVersion: true/false). Angular must be a singleton. You decide per-library whether to enforce strict version matching or allow ranges.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-orange">SENIOR</span></div>
+      <div class="qa-q">How do you share authentication state between your host shell and remote MFE apps?</div>
+      <div class="qa-hint">✅ Expected: Shared auth service via a shared library remote, or a custom event bus, or browser storage with token sharing. JWT stored in memory (not localStorage for XSS reasons) in shell, passed to remotes via a shared module.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-red">TRICKY FOLLOW-UP</span></div>
+      <div class="qa-q">What happens when a remote MFE fails to load? How do you handle it gracefully?</div>
+      <div class="qa-hint">✅ Expected: Dynamic import wrapping in try/catch, fallback component or error boundary component, manifest-based loading with retry logic. Discuss how you communicated this failure state to the user.</div>
+    </div>
+
+    <hr class="divider">
+
+    <h3>🔴 Performance Optimization</h3>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-blue">INTERMEDIATE</span></div>
+      <div class="qa-q">Walk me through how you achieved a 35% UI rendering improvement on 100k+ node tree data.</div>
+      <div class="qa-hint">✅ Expected: This is YOUR story — structure it as: Problem → Root Cause Analysis → Solutions Applied → Result. Mention virtual scrolling (CDK), OnPush + trackBy, lazy-loading tree node children, on-demand rendering of collapsed branches. Be specific about how you measured the before/after.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-orange">SENIOR</span></div>
+      <div class="qa-q">How did you identify which components were causing the most change detection overhead?</div>
+      <div class="qa-hint">✅ Expected: Angular DevTools profiler — shows component tree, number of change detections, time spent. Chrome Performance tab for paint/layout thrashing. Console.count inside ngOnChanges/ngDoCheck for debugging.</div>
+    </div>
+
+    <hr class="divider">
+
+    <h3>🟢 Leadership / Behavioral (Senior-Level Must Prep)</h3>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-blue">INTERMEDIATE</span></div>
+      <div class="qa-q">Tell me about a time you had to balance technical debt with feature delivery pressure.</div>
+      <div class="qa-hint">✅ Expected: Concrete example, not generic. Use your Angular upgrade project — you were modernizing deprecated APIs while also delivering new features. How you made the tradeoff transparent to stakeholders.</div>
+    </div>
+    <div class="qa-block">
+      <div class="qa-level"><span class="badge badge-orange">SENIOR</span></div>
+      <div class="qa-q">How did you manage the Angular v6 to v20 upgrade without production regressions?</div>
+      <div class="qa-hint">✅ Expected: Phased migration strategy, feature-flag isolation, incremental module updates, Cypress E2E as regression safety net, tested on staging env for each major version jump, rollback plan per phase.</div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 4: HANDS-ON PRACTICE -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Hands-On Practice Topics</span>
+    </div>
+
+    <div class="topic-grid">
+      <div class="topic-item">
+        <div class="t-name">Angular Signals</div>
+        <div class="t-priority"><span class="badge badge-red">BUILD</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Create a counter + computed total + effect that logs changes. Add a signal-based form.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">OnPush + trackBy</div>
+        <div class="t-priority"><span class="badge badge-red">BUILD</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Build a list of 1000 items. Measure CD cycles with/without OnPush. Add trackBy. Profile in DevTools.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">RxJS Operators</div>
+        <div class="t-priority"><span class="badge badge-red">BUILD</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Build a search box using switchMap + debounceTime + distinctUntilChanged. Handle loading/error.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">Standalone Components</div>
+        <div class="t-priority"><span class="badge badge-orange">REVISE</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Bootstrap an app using bootstrapApplication(), make a component that imports CommonModule, RouterModule standalone.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">Virtual Scrolling</div>
+        <div class="t-priority"><span class="badge badge-red">BUILD</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">CDK VirtualScrollViewport with 10k items. Compare DOM node count vs plain ngFor.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">Module Federation</div>
+        <div class="t-priority"><span class="badge badge-orange">REVISE</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Draw the webpack.config for host + one remote. Be able to explain exposes/remotes/shared in words.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">Memory Leak Debug</div>
+        <div class="t-priority"><span class="badge badge-red">PRACTICE EXPLAIN</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Write a component with a subscription that leaks. Then fix it with takeUntil + DestroyRef.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">REST API + HttpClient</div>
+        <div class="t-priority"><span class="badge badge-blue">REVISE</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">HTTP interceptors for auth, retry on 401, error handling with catchError. Be able to draw the flow.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">PostgreSQL JSONB</div>
+        <div class="t-priority"><span class="badge badge-blue">CONCEPTUAL</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Know: ->, ->>, @> operators. When GIN index helps. Be able to write a simple WHERE clause on JSONB field.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">Redis Caching</div>
+        <div class="t-priority"><span class="badge badge-blue">CONCEPTUAL</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Cache-aside pattern. TTL. When frontend requests hit cache vs DB. When cache invalidation is needed.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">CI/CD GitLab</div>
+        <div class="t-priority"><span class="badge badge-blue">REVISE</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Know your .gitlab-ci.yml stages. How lint/test/build/deploy stages chain. How to explain a pipeline failure scenario.</p>
+      </div>
+      <div class="topic-item">
+        <div class="t-name">Production Debugging</div>
+        <div class="t-priority"><span class="badge badge-red">PRACTICE EXPLAIN</span></div>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">Prepare a "hardest production bug I debugged" story. Use Chrome DevTools, console timing, Angular profiler.</p>
+      </div>
+    </div>
+
+    <div class="highlight green" style="margin-top:20px">
+      <div class="highlight-title">Practice aloud rule</div>
+      <p>For every topic above, practice a 90-second verbal explanation as if answering an interviewer. The goal is fluency, not memorization. If you can explain it simply, you own it.</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 5: CODING PREP -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Coding Preparation — High ROI Only</span>
+    </div>
+
+    <div class="highlight orange">
+      <div class="highlight-title">Market Reality for Senior Full Stack 2026 India</div>
+      <p>Product companies (Razorpay, Swiggy, Cred, Juspay, Zepto): <strong>Expect 2–3 DSA rounds.</strong> Enterprise/consulting (Siemens, LTTS, L&T, Wipro-type): <strong>Usually 0–1 light DSA.</strong> Target your prep intensity accordingly based on which type of company you're interviewing at.</p>
+    </div>
+
+    <h3>Priority Order: Solve These First</h3>
+
+    <table>
+      <thead><tr><th>Level</th><th>Topic</th><th>Key Problems</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-green">EASY</span></td>
+          <td><strong>Arrays + Strings</strong></td>
+          <td>Two Sum, Best Time to Buy/Sell Stock, Valid Anagram, Longest Common Prefix, Reverse String</td>
+          <td>Most frequent warm-up questions</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">EASY</span></td>
+          <td><strong>HashMap</strong></td>
+          <td>Two Sum (with map), Group Anagrams, Top K Frequent Elements, Contains Duplicate</td>
+          <td>Extremely common, fast O(1) lookups pattern</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">MEDIUM</span></td>
+          <td><strong>Two Pointers</strong></td>
+          <td>Valid Palindrome, 3Sum, Container With Most Water, Move Zeroes</td>
+          <td>Efficient array traversal — shows algorithmic thinking</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">MEDIUM</span></td>
+          <td><strong>Sliding Window</strong></td>
+          <td>Max Subarray (Kadane's), Longest Substring Without Repeating Chars, Minimum Window Substring</td>
+          <td>Very common in product company rounds</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">MEDIUM</span></td>
+          <td><strong>Stack / Queue</strong></td>
+          <td>Valid Parentheses, Min Stack, Daily Temperatures, Implement Queue Using Stacks</td>
+          <td>Relevant for expression parsing, undo/redo — maps to frontend experience</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">MEDIUM</span></td>
+          <td><strong>Tree / BFS / DFS</strong></td>
+          <td>Binary Tree Level Order Traversal, Max Depth of Binary Tree, Inorder Traversal, Symmetric Tree</td>
+          <td>YOU work with tree data — this ties directly to your resume story</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-orange">HARDER</span></td>
+          <td><strong>Sorting + Binary Search</strong></td>
+          <td>Merge Intervals, Search in Rotated Array, Find First and Last Position</td>
+          <td>Occasionally asked; prep 2–3 to feel confident</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-orange">HARDER</span></td>
+          <td><strong>Heap / Priority Queue</strong></td>
+          <td>Kth Largest Element, Top K Frequent Words, Find Median from Data Stream</td>
+          <td>Prepare 2 problems — occasionally asked at senior level</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight" style="margin-top:20px">
+      <div class="highlight-title">Recommended approach</div>
+      <p><strong>Solve 2–3 problems per topic</strong> — don't aim for 200 LeetCode problems. Aim to <strong>deeply understand the pattern</strong> for each category. When you can code Two Sum, Group Anagrams, Valid Parentheses, Level Order Traversal, and Longest Substring without stuttering, you are well-prepared for most senior full-stack interviews in India.</p>
+    </div>
+
+    <h3>Coding Interview Communication Pattern</h3>
+    <div class="card">
+      <ol>
+        <li><strong>Restate the problem</strong> — "So if I understand correctly, I need to..."</li>
+        <li><strong>Clarify edge cases</strong> — "What should I return if the input is empty? Can there be duplicates?"</li>
+        <li><strong>State your approach first</strong> — "I'm thinking brute force is O(n²). I can optimize to O(n) using a hashmap."</li>
+        <li><strong>Code while narrating</strong> — explain what each line does as you write</li>
+        <li><strong>Test with example</strong> — trace through your solution with their example</li>
+        <li><strong>Mention complexity</strong> — "This is O(n) time, O(n) space for the hashmap"</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 6: CASE STUDIES -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Real-World Case Studies to Master</span>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 Scenario: 100k Node Tree — Slow Rendering</div>
+      <p><strong>Interviewer asks:</strong> "Your UI is freezing when users expand a tree with thousands of nodes. How do you debug and fix it?"</p>
+      <br>
+      <p><strong>Your answer structure:</strong></p>
+      <ul style="margin-top:8px">
+        <li><strong>Diagnose:</strong> Chrome Performance tab to find long tasks. Angular DevTools to see CD cycle count. Identify which component triggers the most re-renders.</li>
+        <li><strong>Root causes:</strong> All nodes rendered in DOM at once. Default Change Detection running on every user event across the whole tree.</li>
+        <li><strong>Fixes applied:</strong> (1) CDK Virtual Scroll — only render visible rows. (2) OnPush on all tree node components. (3) trackBy to prevent DOM re-creation on data refresh. (4) Lazy load child nodes on expand event — don't load entire tree upfront.</li>
+        <li><strong>Result:</strong> Reduced initial render time, browser stays responsive on expand/collapse.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🏗️ Scenario: Micro Frontend — Remote App Fails to Load</div>
+      <p><strong>Interviewer asks:</strong> "In your MFE platform, one remote app throws an error during dynamic import. What happens and how do you handle it?"</p>
+      <br>
+      <ul>
+        <li>Wrap dynamic imports in try/catch — render an error fallback component instead of crashing the shell</li>
+        <li>Use Angular's ENVIRONMENT_INITIALIZER or APP_INITIALIZER to pre-validate remote manifests on app startup</li>
+        <li>Show a user-friendly "this section is temporarily unavailable" message</li>
+        <li>Log the error to your monitoring system (Sentry/Datadog) with the remote name and version info</li>
+        <li>Design the shell so other MFE apps continue working — single remote failure shouldn't bring down the platform</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ Scenario: Build Time Optimization</div>
+      <p><strong>Interviewer asks:</strong> "How did you reduce Angular build time by 69%?"</p>
+      <br>
+      <ul>
+        <li><strong>Problem:</strong> Single monolithic Angular application, all feature modules eagerly loaded, large shared module re-compiled on every change</li>
+        <li><strong>Analysis:</strong> Webpack Bundle Analyzer to find the largest chunks. Identified circular dependencies. Found large shared modules that had no lazy-loading strategy.</li>
+        <li><strong>Actions:</strong> (1) Moved to Module Federation — remotes compile independently. (2) Extracted truly shared code to a shared library remote. (3) Eliminated circular deps. (4) Enabled persistent build cache.</li>
+        <li><strong>Result:</strong> Each app compiles only its own code. HMR only rebuilds the changed remote, not the whole platform.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🐛 Scenario: Production Debugging — Data Not Updating</div>
+      <p><strong>Interviewer asks:</strong> "Users report that a list stops updating after the first few clicks. You can't reproduce in dev. What's your approach?"</p>
+      <br>
+      <ul>
+        <li>Check if the issue is reproduction-environment-specific (data-driven vs code-driven)</li>
+        <li>Add temporary console logging to the subscription chain to check if emissions stop</li>
+        <li>Check for an exhaustMap or first() operator that stops listening after one emission</li>
+        <li>Check if the component was destroyed and subscription left dangling</li>
+        <li>Look at error boundary / global error handler — maybe an error is silently swallowing subsequent emissions</li>
+        <li>Check zone.js — is something running outside Angular's zone and updates not being detected?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔐 Scenario: Security Vulnerability in Release Pipeline</div>
+      <p><strong>Interviewer asks:</strong> "You mentioned resolving Xray security vulnerabilities. Walk me through that process."</p>
+      <br>
+      <ul>
+        <li>JFrog Xray scans dependencies in the artifact repository and flags CVEs</li>
+        <li>Triage vulnerabilities by severity (critical/high/medium) — critical must be resolved before release</li>
+        <li>Check if the vulnerable dependency is directly used or transitive (nested dep)</li>
+        <li>Fix: update the direct dependency version, or use npm/yarn resolutions to force a safe version of a transitive dep</li>
+        <li>Rebuild, re-scan to confirm CVE is resolved, document the fix for audit trail</li>
+        <li>Added Xray scan as a mandatory CI gate — builds with critical CVEs now fail automatically</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🗄️ Scenario: PostgreSQL JSONB for PDM Data</div>
+      <p><strong>Interviewer asks:</strong> "Why did your team use JSONB instead of normalized tables for some PDM data?"</p>
+      <br>
+      <ul>
+        <li>PDM (Product Data Management) entities have variable attribute schemas — different equipment types have different field sets</li>
+        <li>JSONB lets you store schema-flexible attributes without adding columns for every possible field</li>
+        <li>GIN index on the JSONB column allows fast lookups on nested fields</li>
+        <li>Tradeoff: JSONB is harder to query, no foreign key constraints inside JSON, harder to migrate if schema evolves predictably</li>
+        <li>Best fit when: schema is genuinely variable, read patterns are known, you can index the commonly queried paths</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 7: MOCK INTERVIEW COACHING -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">Mock Interview Training</span>
+    </div>
+
+    <h3>How Senior Engineers Answer — The STAR+ Pattern</h3>
+    <div class="card">
+      <p>For every technical story, structure as: <strong>Situation → Problem/Root Cause → Actions (specific, your contribution) → Result (metric) → Learning</strong></p>
+      <br>
+      <p>The key difference between a mid-level and senior answer is the depth on <strong>"Actions"</strong> — seniors explain WHY they chose a specific approach over alternatives, and what tradeoffs they consciously made.</p>
+    </div>
+
+    <h3>How to Answer When You Only Partially Implemented Something</h3>
+    <div class="highlight orange">
+      <div class="highlight-title">Honest framing script</div>
+      <p>"My direct involvement was on the frontend side — I owned [X specific thing]. The backend piece was handled by the Java team; I worked closely with them on [API contracts / data structure / integration points]. I can speak to how it worked from the integration side, though I didn't write the backend service code myself."</p>
+    </div>
+    <div class="card">
+      <p>This answer is <strong>far more credible</strong> than pretending you owned the whole stack. Interviewers can tell when someone is bluffing on backend depth. Owning your frontend expertise confidently while being honest about collaboration is a senior-level signal, not a weakness.</p>
+    </div>
+
+    <h3>How to Explain Architecture Simply</h3>
+    <div class="card">
+      <div class="card-title">The "Explain to a New Team Member" test</div>
+      <p>Before any interview, practice explaining your MFE architecture as if onboarding a new engineer. If you can explain it in 3 sentences without jargon, you truly own it. Example:</p>
+      <br>
+      <p style="color:var(--accent3);font-style:italic">"We have a shell application that acts as the container. It dynamically loads 4 independent Angular apps at runtime using Webpack Module Federation — each team owns and deploys their own app independently. The shell handles the routing, auth, and shared utilities like design system components."</p>
+    </div>
+
+    <h3>Your "Tell Me About Yourself" — 90 Second Script</h3>
+    <div class="card">
+      <p>Structure: <strong>Hook → Core Expertise → Key Accomplishment → What You're Looking For</strong></p>
+      <br>
+      <p><em>"I'm a Senior Angular and Full Stack Engineer with 10 years of experience building enterprise-grade web platforms. My strongest area is Angular platform engineering — I've taken a large-scale Angular platform from v6 to v20, built a Micro Frontend architecture using Module Federation for a global oil & gas client, and improved UI performance by 35% on datasets with over 100,000 nodes. Beyond frontend, I contribute to full-stack delivery — I work with Java microservice teams on API design and integration, and I've also been a hands-on Scrum Master on my current project. I'm now looking for a senior role where I can own platform architecture and contribute to high-impact product engineering."</em></p>
+    </div>
+
+    <h3>Ownership Communication — Key Phrases</h3>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">✅ Say This</div>
+        <ul>
+          <li>"I owned the frontend architecture decision for..."</li>
+          <li>"I collaborated with the backend team on..."</li>
+          <li>"I was the primary engineer responsible for..."</li>
+          <li>"I contributed to the backend integration by..."</li>
+          <li>"I drove the decision to use X because..."</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">❌ Avoid This</div>
+        <ul>
+          <li>"We built..." (no individual ownership)</li>
+          <li>"I architected the entire backend..." (overclaiming)</li>
+          <li>"I designed the microservices..." (too vague if untrue)</li>
+          <li>"I know Kubernetes deeply..." (don't say this)</li>
+          <li>Pausing blankly on follow-up questions to claims you made</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 8: WEAK AREA PLAN -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <span class="section-title">Weak Area Improvement Plan</span>
+    </div>
+
+    <table>
+      <thead><tr><th>Area</th><th>Current Gap</th><th>Action Required</th><th>Depth Needed</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Angular Signals</strong></td>
+          <td>Added to resume; may not be deeply hands-on</td>
+          <td>Build 2 small examples. Know signal(), computed(), effect(), toObservable(), toSignal()</td>
+          <td><span class="badge badge-orange">MEDIUM DEEP</span></td>
+        </tr>
+        <tr>
+          <td><strong>Standalone Components</strong></td>
+          <td>Same — added for ATS</td>
+          <td>Bootstrap a test app without NgModule. Know imports array, provideRouter(), provideHttpClient()</td>
+          <td><span class="badge badge-blue">CONCEPTUAL+</span></td>
+        </tr>
+        <tr>
+          <td><strong>System Design</strong></td>
+          <td>Strong on FE arch; weaker on distributed systems</td>
+          <td>Study frontend-heavy system design: design a real-time dashboard, design a collaborative editor, design a notification system. You don't need to design a Kafka cluster.</td>
+          <td><span class="badge badge-orange">MEDIUM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Java / Backend</strong></td>
+          <td>Contributor, not owner</td>
+          <td>Refresh basic Java annotations (JAX-RS), know REST contract principles, understand async patterns conceptually. Don't try to become a backend engineer.</td>
+          <td><span class="badge badge-blue">CONCEPTUAL</span></td>
+        </tr>
+        <tr>
+          <td><strong>DSA</strong></td>
+          <td>Rusty after enterprise career</td>
+          <td>Solve 25–30 targeted LeetCode problems over 5–6 weeks. Focus on hashmap, two pointers, sliding window, tree traversal. Use JavaScript or TypeScript.</td>
+          <td><span class="badge badge-orange">MEDIUM</span></td>
+        </tr>
+        <tr>
+          <td><strong>Kubernetes</strong></td>
+          <td>"Familiar" — don't probe here</td>
+          <td>Know: pods, deployments, services, ingress conceptually. Be able to say "I worked within our K8s pipelines but wasn't the DevOps owner." Don't over-prep this.</td>
+          <td><span class="badge badge-green">CONCEPTUAL ONLY</span></td>
+        </tr>
+        <tr>
+          <td><strong>Redis</strong></td>
+          <td>Listed in skills; depth unclear</td>
+          <td>Know cache-aside pattern, TTL, eviction policies, when to invalidate. Be able to explain how your API responses get cached and how cache busting works.</td>
+          <td><span class="badge badge-blue">CONCEPTUAL</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight green" style="margin-top:20px">
+      <div class="highlight-title">What interviewers won't probe deeply for your role</div>
+      <p>Kafka internals, distributed consensus (Raft/Paxos), JVM tuning, complex SQL joins optimization, Kubernetes operators, container networking — unless you're explicitly targeting a platform/infra engineering role. Focus your energy on Angular depth and frontend architecture stories.</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────── -->
+  <!-- SECTION 9: DAILY PRACTICE PLAN -->
+  <!-- ────────────────────────────────────────────────── -->
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <span class="section-title">Daily Practice Plan</span>
+    </div>
+
+    <h3>6-Week Preparation Schedule</h3>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">📅 Week 1–2: Angular Core</div>
+        <div class="day-row"><div class="day-time">MON</div><div class="day-content"><strong>Study:</strong> Change Detection deep dive (Default vs OnPush, Signals intro)</div></div>
+        <div class="day-row"><div class="day-time">TUE</div><div class="day-content"><strong>Build:</strong> Counter app using Signals. Add computed + effect.</div></div>
+        <div class="day-row"><div class="day-time">WED</div><div class="day-content"><strong>Study:</strong> RxJS operators — switchMap, mergeMap, exhaustMap examples</div></div>
+        <div class="day-row"><div class="day-time">THU</div><div class="day-content"><strong>Build:</strong> Search box with switchMap + debounceTime. Fix a memory leak with takeUntil.</div></div>
+        <div class="day-row"><div class="day-time">FRI</div><div class="day-content"><strong>Explain aloud:</strong> Your 3 Angular answers (CD, RxJS, Signals) — 90 sec each</div></div>
+        <div class="day-row"><div class="day-time">SAT</div><div class="day-content"><strong>Code:</strong> 2 LeetCode easy (Two Sum, Contains Duplicate)</div></div>
+        <div class="day-row"><div class="day-time">SUN</div><div class="day-content"><strong>Revise:</strong> Review week's notes. Rest.</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📅 Week 3–4: Architecture + Performance</div>
+        <div class="day-row"><div class="day-time">MON</div><div class="day-content"><strong>Study:</strong> Module Federation — host/remote/shared config</div></div>
+        <div class="day-row"><div class="day-time">TUE</div><div class="day-content"><strong>Draw + explain:</strong> Your MFE architecture diagram out loud</div></div>
+        <div class="day-row"><div class="day-time">WED</div><div class="day-content"><strong>Build:</strong> Virtual scroll list with 10k items. Profile before/after.</div></div>
+        <div class="day-row"><div class="day-time">THU</div><div class="day-content"><strong>Study:</strong> Standalone Components — bootstrapApplication(), imports/providers pattern</div></div>
+        <div class="day-row"><div class="day-time">FRI</div><div class="day-content"><strong>Explain aloud:</strong> Your performance case study (100k nodes story)</div></div>
+        <div class="day-row"><div class="day-time">SAT</div><div class="day-content"><strong>Code:</strong> 2 LeetCode medium (Two pointers / sliding window)</div></div>
+        <div class="day-row"><div class="day-time">SUN</div><div class="day-content"><strong>Revise:</strong> Weak area — Signals hands-on if not done</div></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">📅 Week 5: Full Stack + System Design</div>
+        <div class="day-row"><div class="day-time">MON</div><div class="day-content"><strong>Study:</strong> PostgreSQL JSONB operators, GIN index concept, cache-aside Redis</div></div>
+        <div class="day-row"><div class="day-time">TUE</div><div class="day-content"><strong>Study:</strong> REST API design — pagination, status codes, versioning</div></div>
+        <div class="day-row"><div class="day-time">WED</div><div class="day-content"><strong>System Design:</strong> Design a real-time data dashboard frontend system</div></div>
+        <div class="day-row"><div class="day-time">THU</div><div class="day-content"><strong>Practice:</strong> "Tell me about yourself" polished version (record and replay)</div></div>
+        <div class="day-row"><div class="day-time">FRI</div><div class="day-content"><strong>Behavioral:</strong> Prep 3 STAR stories (upgrade migration, perf fix, team conflict)</div></div>
+        <div class="day-row"><div class="day-time">SAT</div><div class="day-content"><strong>Code:</strong> Tree traversal (Level order BFS, Max depth)</div></div>
+        <div class="day-row"><div class="day-time">SUN</div><div class="day-content"><strong>Rest + light review</strong></div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📅 Week 6: Mock Interviews + Polish</div>
+        <div class="day-row"><div class="day-time">MON</div><div class="day-content"><strong>Full mock:</strong> Do a 45-min solo interview out loud (Angular tech round)</div></div>
+        <div class="day-row"><div class="day-time">TUE</div><div class="day-content"><strong>Code mock:</strong> 2 problems under 30 min timer</div></div>
+        <div class="day-row"><div class="day-time">WED</div><div class="day-content"><strong>Full mock:</strong> Behavioral + system design round</div></div>
+        <div class="day-row"><div class="day-time">THU</div><div class="day-content"><strong>Weak areas:</strong> Final targeted revision on gaps</div></div>
+        <div class="day-row"><div class="day-time">FRI</div><div class="day-content"><strong>Light review only.</strong> No new topics. Rest and confidence-build.</div></div>
+        <div class="day-row"><div class="day-time">SAT–SUN</div><div class="day-content"><strong>Real interviews</strong> — you're ready.</div></div>
+      </div>
+    </div>
+
+    <h3>Daily Minimum (On Active Interview Days)</h3>
+    <div class="card">
+      <div class="day-row"><div class="day-time">30 MIN</div><div class="day-content"><strong>1 coding problem</strong> — from your target topic list. Don't skip this.</div></div>
+      <div class="day-row"><div class="day-time">20 MIN</div><div class="day-content"><strong>Explain 1 technical concept aloud</strong> — angular, system design, or case study</div></div>
+      <div class="day-row"><div class="day-time">10 MIN</div><div class="day-content"><strong>Review 1 previously prepped answer</strong> — keep it fresh</div></div>
+    </div>
+
+    <div class="highlight green" style="margin-top:20px">
+      <div class="highlight-title">🎯 Confidence-Building Sequence</div>
+      <p>Week 1–2: Build confidence in your strongest areas first (Angular, RxJS) — this fills your "answer bank" with things you can discuss fluently. Week 3–4: Fill the gaps (Signals, Standalone, MFE stories). Week 5: Round out full-stack conceptual fluency. Week 6: Simulate the real thing — interviews are a performance, and you need rehearsal reps, not more new information.</p>
+    </div>
+
+    <div class="highlight" style="margin-top:14px">
+      <div class="highlight-title">📌 Final Reminder</div>
+      <p>Your profile is genuinely strong for 35+ LPA senior Angular roles in Bengaluru. The gap between your current state and offer conversion is not knowledge — it's <strong>interview fluency and answer structure</strong>. The engineer who explains their work clearly and owns their depth honestly beats the engineer who memorized more topics but answers in a scattered way. Practice the communication as much as the content.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navItems.forEach(n => n.classList.remove('active'));
+        const active = document.querySelector('.nav-item[href="#' + e.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
