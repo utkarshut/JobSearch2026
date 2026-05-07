@@ -1,0 +1,484 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.r{padding:1rem 0;font-family:var(--font-sans)}
+.topbar{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:12px 16px;margin-bottom:1.2rem}
+.topbar-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.topbar h1{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.topbar p{font-size:12px;color:var(--color-text-secondary)}
+.pill{font-size:11px;font-weight:500;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.p-red{background:#FCEBEB;color:#A32D2D}
+.p-amber{background:#FAEEDA;color:#854F0B}
+.p-blue{background:#E6F1FB;color:#185FA5}
+.p-green{background:#EAF3DE;color:#3B6D11}
+.p-purple{background:#EEEDFE;color:#3C3489}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem}
+.tb{border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;color:var(--color-text-secondary);background:transparent;transition:all .15s}
+.tb.on{background:var(--color-background-primary);border-color:var(--color-border-primary);color:var(--color-text-primary)}
+.sec{display:none}.sec.on{display:block}
+.note{border-left:3px solid #378ADD;padding:10px 14px;margin-bottom:1rem;border-radius:0}
+.note p{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+.note strong{font-weight:500;color:var(--color-text-primary)}
+.qlabel{font-size:10px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.08em;margin:1.2rem 0 6px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:10px;overflow:hidden}
+.ch{padding:12px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:10px}
+.ch:hover{background:var(--color-background-secondary)}
+.qt{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;flex:1}
+.cv{font-size:15px;color:var(--color-text-tertiary);transition:transform .2s;flex-shrink:0;margin-top:1px}
+.cv.o{transform:rotate(180deg)}
+.cb{display:none;padding:0 16px 14px;border-top:0.5px solid var(--color-border-tertiary)}
+.cb.o{display:block}
+.al{font-size:10px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em;margin:10px 0 5px}
+.at{font-size:13px;color:var(--color-text-secondary);line-height:1.75}
+.at strong{font-weight:500;color:var(--color-text-primary)}
+.at .b{font-family:var(--font-mono);background:var(--color-background-secondary);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--color-text-primary)}
+.at ul{margin-left:16px;margin-top:4px}
+.at ul li{margin-bottom:3px}
+.tip{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;margin-top:10px}
+.tip p{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+.tip strong{font-weight:500;color:var(--color-text-primary)}
+.divl{height:0.5px;background:var(--color-border-tertiary);margin:8px 0}
+.code-block{font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;margin:8px 0;line-height:1.6;color:var(--color-text-primary);white-space:pre-wrap;word-break:break-word}
+</style>
+
+<div class="r">
+<h2 class="sr-only">Accenture Technical Round Complete Prep for Utkarsh Bhardwaj — Application Support Engineer 2026</h2>
+
+<div class="topbar">
+  <div class="topbar-row">
+    <h1>Technical Round — Complete Prep Guide</h1>
+    <span class="pill p-red">Java Must-Have</span>
+    <span class="pill p-blue">10+ Years Profile</span>
+    <span class="pill p-amber">Application Support Engineer</span>
+  </div>
+  <p>Based on real 2025–26 Accenture Java interview patterns (Glassdoor, Medium, GeeksforGeeks) · Mapped to your JD + LTTS/Oracle/Infosys profile</p>
+</div>
+
+<div class="tabs">
+  <button class="tb on" onclick="sw('intro')">How the round works</button>
+  <button class="tb" onclick="sw('java-core')">Core Java</button>
+  <button class="tb" onclick="sw('java8')">Java 8+</button>
+  <button class="tb" onclick="sw('oops')">OOPs & Design</button>
+  <button class="tb" onclick="sw('multi')">Multithreading</button>
+  <button class="tb" onclick="sw('sql')">SQL & DB</button>
+  <button class="tb" onclick="sw('support')">App Support Scenarios</button>
+  <button class="tb" onclick="sw('project')">Project Deep-dive</button>
+  <button class="tb" onclick="sw('ask')">Questions to ask them</button>
+</div>
+
+<!-- INTRO -->
+<div id="intro" class="sec on">
+  <div class="note"><p><strong>What Accenture's Technical Round 1 looks like for a senior experienced profile (2025–26 pattern):</strong><br>Virtual (MS Teams/WebEx) · 45–60 mins · 1 interviewer (senior dev or tech lead) · No live coding for support roles but be ready for code-reading/debugging on screen-share · Heavy on scenario-based questions mixed with Java concepts · They will ask you to explain from your current project in detail.</p></div>
+
+  <div class="qlabel">Time split across 60 minutes (typical)</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:1rem">
+    <div style="background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px">
+      <div style="font-size:12px;font-weight:500;color:#185FA5">0–10 min</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px;line-height:1.5">Self intro + project walkthrough</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px">
+      <div style="font-size:12px;font-weight:500;color:#854F0B">10–30 min</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px;line-height:1.5">Core Java — OOPs, Collections, Java 8, Multithreading</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px">
+      <div style="font-size:12px;font-weight:500;color:#3B6D11">30–45 min</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px;line-height:1.5">SQL, debugging scenarios, troubleshooting mindset</div>
+    </div>
+    <div style="background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px">
+      <div style="font-size:12px;font-weight:500;color:#3C3489">45–60 min</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:3px;line-height:1.5">Support scenarios, cross-team, your Q&A</div>
+    </div>
+  </div>
+
+  <div class="note"><p><strong>Critical heads-up for your profile:</strong> You'll be asked to bridge Angular/frontend experience toward Java. The interviewer knows your primary depth is Angular — they'll probe to see how much Java/backend you genuinely know. Be honest, confident, and use your real project examples (JAX-RS, REST APIs, PostgreSQL, microservices) to show full-stack debugging depth.</p></div>
+</div>
+
+<!-- CORE JAVA -->
+<div id="java-core" class="sec">
+  <div class="note"><p><strong>2025–26 Accenture pattern:</strong> Rapid-fire Core Java questions in the first 15 minutes. They cover Collections, Exception Handling, String, and the JVM — fast answers expected. For senior profiles they go deeper on internals.</p></div>
+
+  <div class="qlabel">Collections & Data Structures</div>
+
+  <div class="card"><div class="ch" onclick="t('c1')"><div class="qt">What is the difference between HashMap and ConcurrentHashMap?</div><span class="pill p-red" style="flex-shrink:0">High freq</span><i class="ti ti-chevron-down cv" id="ic1" aria-hidden="true"></i></div>
+  <div class="cb" id="c1">
+    <div class="al">Answer</div>
+    <div class="at"><strong>HashMap</strong> is not thread-safe. Multiple threads accessing it simultaneously can cause data corruption or infinite loops. <strong>ConcurrentHashMap</strong> is thread-safe — it uses segment-level locking (Java 7) or CAS operations (Java 8+) instead of locking the whole map, giving much better concurrent performance.<br><br>
+    <strong>Key differences:</strong><ul><li>HashMap allows one null key and multiple null values; ConcurrentHashMap does not allow null key or value</li><li>ConcurrentHashMap is best for multi-threaded environments; HashMap for single-threaded</li><li>ConcurrentHashMap has higher memory overhead due to concurrency structure</li></ul>
+    <div class="tip"><p><strong>Your angle:</strong> "In my enterprise Angular + Java platform, backend microservices handling concurrent API requests from multiple MFE modules used ConcurrentHashMap for in-memory caching of session-specific config — HashMap would have caused race conditions under simultaneous user load."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('c2')"><div class="qt">ArrayList vs LinkedList — when do you use which?</div><span class="pill p-amber" style="flex-shrink:0">Likely</span><i class="ti ti-chevron-down cv" id="ic2" aria-hidden="true"></i></div>
+  <div class="cb" id="c2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>ArrayList</strong> — backed by a dynamic array. Fast random access O(1), slow insertion/deletion in the middle O(n). Use when you read more than you write.<br><br><strong>LinkedList</strong> — doubly linked list. Slow random access O(n), fast insertion/deletion at both ends O(1). Use when you frequently add/remove from the beginning or middle.<br><br>
+    For application support scenarios: when processing large log queues (FIFO), LinkedList is better; when indexing parsed data rows, ArrayList wins.</div>
+  </div></div>
+
+  <div class="card"><div class="ch" onclick="t('c3')"><div class="qt">What happens when you put a duplicate key in a HashMap?</div><span class="pill p-amber" style="flex-shrink:0">Rapid-fire</span><i class="ti ti-chevron-down cv" id="ic3" aria-hidden="true"></i></div>
+  <div class="cb" id="c3">
+    <div class="al">Answer</div>
+    <div class="at">The new value overwrites the old value for that key. <span class="b">put()</span> returns the previous value (or null if no previous value existed). The key count stays the same — no duplicate keys in HashMap.
+    <div class="tip"><p><strong>Follow-up they may ask:</strong> "How does HashMap handle hash collisions?" → Java uses chaining (linked list in each bucket, converted to a balanced tree — red-black tree — when bucket size exceeds 8 in Java 8+) to handle collisions.</p></div>
+  </div></div></div>
+
+  <div class="qlabel">Exception Handling</div>
+
+  <div class="card"><div class="ch" onclick="t('c4')"><div class="qt">Difference between checked and unchecked exceptions. Give examples.</div><span class="pill p-red" style="flex-shrink:0">Always asked</span><i class="ti ti-chevron-down cv" id="ic4" aria-hidden="true"></i></div>
+  <div class="cb" id="c4">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Checked exceptions</strong> — must be handled at compile time (try-catch or throws). They represent external conditions the program should recover from. Examples: <span class="b">IOException</span>, <span class="b">SQLException</span>, <span class="b">FileNotFoundException</span>.<br><br>
+    <strong>Unchecked exceptions (RuntimeExceptions)</strong> — not required to be declared or caught. They represent programming bugs. Examples: <span class="b">NullPointerException</span>, <span class="b">ArrayIndexOutOfBoundsException</span>, <span class="b">ClassCastException</span>.<br><br>
+    <strong>Error</strong> — severe JVM-level issues not meant to be caught: <span class="b">OutOfMemoryError</span>, <span class="b">StackOverflowError</span>.
+    <div class="tip"><p><strong>Your angle:</strong> "In production debugging at Halliburton, I traced critical incidents caused by uncaught NullPointerExceptions in async data pipelines — we added defensive null-checks and input validation at the REST API layer which reduced P1 incidents significantly."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('c5')"><div class="qt">What is the difference between final, finally, and finalize?</div><span class="pill p-amber" style="flex-shrink:0">Classic rapid-fire</span><i class="ti ti-chevron-down cv" id="ic5" aria-hidden="true"></i></div>
+  <div class="cb" id="c5">
+    <div class="al">Answer</div>
+    <div class="at"><strong>final</strong> — keyword. Variable = value can't change. Method = can't be overridden. Class = can't be subclassed.<br><br>
+    <strong>finally</strong> — block in try-catch-finally. Always executes whether exception occurs or not. Used to release resources (close DB connections, files).<br><br>
+    <strong>finalize()</strong> — method in Object class, called by the garbage collector before an object is destroyed. Deprecated in Java 9, removed in Java 18. Use <span class="b">try-with-resources</span> instead for cleanup.</div>
+  </div></div>
+
+  <div class="qlabel">String & JVM</div>
+
+  <div class="card"><div class="ch" onclick="t('c6')"><div class="qt">Why is String immutable in Java? What is the String Pool?</div><span class="pill p-red" style="flex-shrink:0">Very likely</span><i class="ti ti-chevron-down cv" id="ic6" aria-hidden="true"></i></div>
+  <div class="cb" id="c6">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Immutability:</strong> String objects cannot be changed after creation. Any modification creates a new String object. Reasons: security (used in class loading, network connections), thread safety (immutable objects are inherently thread-safe), caching (hashCode can be cached).<br><br>
+    <strong>String Pool:</strong> A special area in the heap (PermGen in older versions, now in main heap via Metaspace) where Java stores string literals. When you write <span class="b">String s = "hello"</span>, Java checks the pool first — if "hello" exists, it reuses the reference. <span class="b">new String("hello")</span> always creates a new object outside the pool.
+    <div class="code-block">String a = "hello";      // Pool
+String b = "hello";      // Same reference as a
+String c = new String("hello"); // New object
+System.out.println(a == b);  // true
+System.out.println(a == c);  // false
+System.out.println(a.equals(c)); // true</div>
+  </div></div></div>
+</div>
+
+<!-- JAVA 8 -->
+<div id="java8" class="sec">
+  <div class="note"><p><strong>2025–26 pattern:</strong> Java 8 is the most asked area for experienced candidates at Accenture. Stream API, lambdas, Optional, and functional interfaces come up in almost every round. Given your Angular/RxJS background, these will feel familiar conceptually — sell that parallel.</p></div>
+
+  <div class="qlabel">Streams & Lambdas</div>
+
+  <div class="card"><div class="ch" onclick="t('j1')"><div class="qt">What is the Stream API? How is it different from Collections?</div><span class="pill p-red" style="flex-shrink:0">Always asked</span><i class="ti ti-chevron-down cv" id="ij1" aria-hidden="true"></i></div>
+  <div class="cb" id="j1">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Collection</strong> stores data in memory and supports CRUD. You interact with the data directly.<br><strong>Stream</strong> processes data through a pipeline of operations without modifying the source. It is lazy — intermediate operations (filter, map) are not executed until a terminal operation (collect, forEach, count) is called.<br><br>
+    Key stream features: lazy evaluation, can be parallelized with <span class="b">parallelStream()</span>, can only be consumed once.
+    <div class="code-block">// Filter even numbers and collect to list
+List&lt;Integer&gt; evens = numbers.stream()
+    .filter(n -> n % 2 == 0)
+    .collect(Collectors.toList());
+
+// Map and reduce
+int sum = numbers.stream()
+    .mapToInt(Integer::intValue).sum();</div>
+    <div class="tip"><p><strong>Your angle:</strong> "Very similar to RxJS observables in Angular — both are lazy, pipeline-based, and support operators like filter/map. I used Stream API to process large JSON payloads from REST APIs in the Java backend layer of our Halliburton platform."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('j2')"><div class="qt">What is a Functional Interface? Name some built-in ones in Java 8.</div><span class="pill p-red" style="flex-shrink:0">High freq</span><i class="ti ti-chevron-down cv" id="ij2" aria-hidden="true"></i></div>
+  <div class="cb" id="j2">
+    <div class="al">Answer</div>
+    <div class="at">A functional interface has <strong>exactly one abstract method</strong>. Annotated with <span class="b">@FunctionalInterface</span>. They enable lambda expressions.<br><br>
+    Built-in ones in <span class="b">java.util.function</span>:<ul>
+    <li><strong>Predicate&lt;T&gt;</strong> — takes T, returns boolean. Used in stream filter()</li>
+    <li><strong>Function&lt;T,R&gt;</strong> — takes T, returns R. Used in map()</li>
+    <li><strong>Consumer&lt;T&gt;</strong> — takes T, returns nothing. Used in forEach()</li>
+    <li><strong>Supplier&lt;T&gt;</strong> — takes nothing, returns T</li>
+    <li><strong>BiFunction&lt;T,U,R&gt;</strong> — takes two inputs, returns result</li>
+    </ul>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('j3')"><div class="qt">What is Optional? Why was it introduced?</div><span class="pill p-amber" style="flex-shrink:0">Likely</span><i class="ti ti-chevron-down cv" id="ij3" aria-hidden="true"></i></div>
+  <div class="cb" id="j3">
+    <div class="al">Answer</div>
+    <div class="at"><span class="b">Optional&lt;T&gt;</span> is a container object that may or may not contain a value. Introduced to reduce <span class="b">NullPointerException</span> risks and make null handling explicit.<br><br>
+    <div class="code-block">Optional&lt;String&gt; name = Optional.ofNullable(user.getName());
+name.ifPresent(n -> System.out.println("Name: " + n));
+String result = name.orElse("Unknown");
+String val = name.orElseThrow(() -> new RuntimeException("No name"));</div>
+    <div class="tip"><p><strong>Support angle:</strong> "In production, a major class of NullPointerExceptions in our REST API handlers was eliminated after we refactored return types to use Optional — this came up directly in a root-cause analysis I led."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('j4')"><div class="qt">What is the difference between map() and flatMap() in Streams?</div><span class="pill p-amber" style="flex-shrink:0">Senior-level check</span><i class="ti ti-chevron-down cv" id="ij4" aria-hidden="true"></i></div>
+  <div class="cb" id="j4">
+    <div class="al">Answer</div>
+    <div class="at"><strong>map()</strong> — transforms each element to one output. Returns Stream&lt;Stream&lt;T&gt;&gt; if the function returns a stream.<br>
+    <strong>flatMap()</strong> — transforms and then flattens. If each element maps to a stream, flatMap merges them into one single stream.<br><br>
+    <div class="code-block">// map: List of lists stays nested
+List&lt;List&lt;Integer&gt;&gt; nested = ...;
+nested.stream().map(List::stream); // Stream&lt;Stream&lt;Integer&gt;&gt;
+
+// flatMap: flattens to one stream
+nested.stream().flatMap(List::stream); // Stream&lt;Integer&gt;</div>
+  </div></div></div>
+</div>
+
+<!-- OOPS -->
+<div id="oops" class="sec">
+  <div class="note"><p><strong>Pattern:</strong> OOPs is rapid-fire for senior profiles. They expect clean definitions plus real examples from your project. Design patterns are asked separately — for support roles, they focus on patterns you've actually used.</p></div>
+
+  <div class="qlabel">Core OOPs concepts</div>
+
+  <div class="card"><div class="ch" onclick="t('o1')"><div class="qt">Explain the 4 pillars of OOPs with real examples from your project.</div><span class="pill p-red" style="flex-shrink:0">Opening question</span><i class="ti ti-chevron-down cv" id="io1" aria-hidden="true"></i></div>
+  <div class="cb" id="o1">
+    <div class="al">Answer — use your Halliburton project as the context</div>
+    <div class="at"><strong>Encapsulation</strong> — bundling data and methods together, hiding internal state. In our PDM platform, Java service classes exposed only REST endpoint methods publicly; internal processing logic was private.<br><br>
+    <strong>Abstraction</strong> — showing only what's necessary. Our REST API contracts exposed simplified endpoints; the complex PostgreSQL/JSONB query logic was abstracted behind service layer interfaces.<br><br>
+    <strong>Inheritance</strong> — child class reusing parent class behaviour. Base service classes holding common audit logging and error handling; specific domain services (DocumentService, WorkflowService) extended them.<br><br>
+    <strong>Polymorphism</strong> — same interface, different behaviour. Our notification system had a single <span class="b">NotificationService</span> interface with different implementations — email, SMS, in-app — selected at runtime via Spring DI.
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('o2')"><div class="qt">Abstract class vs Interface — when do you use which?</div><span class="pill p-red" style="flex-shrink:0">Always asked</span><i class="ti ti-chevron-down cv" id="io2" aria-hidden="true"></i></div>
+  <div class="cb" id="o2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Abstract class:</strong> Use when classes share common state/behaviour and there's a clear IS-A relationship. Can have constructor, instance variables, concrete + abstract methods. A class can extend only ONE abstract class.<br><br>
+    <strong>Interface:</strong> Use for defining a contract/capability, especially for unrelated classes. In Java 8+ can have default and static methods. A class can implement MULTIPLE interfaces — enables multiple inheritance of type.<br><br>
+    <strong>Rule of thumb:</strong> If you need to share code → abstract class. If you need a contract without shared state → interface.
+    <div class="tip"><p><strong>Your angle:</strong> "In the Micro Frontend shell, Java backend services followed interface-driven design — each domain's service contract was an interface, enabling mocking in tests and swapping implementations with zero frontend impact."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('o3')"><div class="qt">What is method overloading vs method overriding?</div><span class="pill p-amber" style="flex-shrink:0">Rapid-fire</span><i class="ti ti-chevron-down cv" id="io3" aria-hidden="true"></i></div>
+  <div class="cb" id="o3">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Overloading</strong> — same method name, different parameters, in the same class. Resolved at compile time (static polymorphism).<br>
+    <strong>Overriding</strong> — child class provides its own implementation of a method defined in the parent class. Same signature. Resolved at runtime (dynamic polymorphism). Use <span class="b">@Override</span> annotation.
+  </div></div></div>
+
+  <div class="qlabel">Design Patterns — asked for senior profiles</div>
+
+  <div class="card"><div class="ch" onclick="t('o4')"><div class="qt">Which design patterns have you used in your projects? Explain one in detail.</div><span class="pill p-red" style="flex-shrink:0">Senior-level must</span><i class="ti ti-chevron-down cv" id="io4" aria-hidden="true"></i></div>
+  <div class="cb" id="o4">
+    <div class="al">Lead with Singleton + Factory from your actual work</div>
+    <div class="at"><strong>Singleton</strong> — ensures only one instance of a class exists. Used in our Java backend for database connection pool managers and configuration loaders.<div class="code-block">public class ConfigManager {
+  private static ConfigManager instance;
+  private ConfigManager() {}
+  public static synchronized ConfigManager getInstance() {
+    if (instance == null) instance = new ConfigManager();
+    return instance;
+  }
+}</div>
+    <strong>Factory Pattern</strong> — creates objects without exposing instantiation logic. We used this to instantiate different notification handlers (email/SMS/push) based on user preference settings — clean separation of creation from use.<br><br>
+    <strong>Observer Pattern</strong> — very relevant for your work. Angular's event-driven architecture and RxJS are implementations of the Observer pattern — same pattern used in Java's event listeners and reactive streams.
+  </div></div></div>
+</div>
+
+<!-- MULTITHREADING -->
+<div id="multi" class="sec">
+  <div class="note"><p><strong>Pattern:</strong> Multithreading is heavily asked for senior Java candidates at Accenture. Focus on concepts + real production scenarios. They especially like questions about deadlock, thread pool, and synchronized.</p></div>
+
+  <div class="card"><div class="ch" onclick="t('m1')"><div class="qt">What is a deadlock? How do you prevent it?</div><span class="pill p-red" style="flex-shrink:0">Very likely</span><i class="ti ti-chevron-down cv" id="im1" aria-hidden="true"></i></div>
+  <div class="cb" id="m1">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Deadlock</strong> — Thread A holds Lock 1, waits for Lock 2. Thread B holds Lock 2, waits for Lock 1. Neither can proceed — circular wait.<br><br>
+    <strong>Prevention strategies:</strong><ul>
+    <li>Always acquire locks in a consistent order across all threads</li>
+    <li>Use <span class="b">tryLock()</span> with timeout instead of indefinite waiting</li>
+    <li>Minimise the scope of synchronized blocks</li>
+    <li>Use higher-level concurrency utilities (<span class="b">java.util.concurrent</span>) instead of low-level synchronized</li>
+    </ul>
+    <div class="tip"><p><strong>Production angle:</strong> "At Halliburton, an async processing pipeline for document workflows had intermittent hangs in staging. Root cause was a deadlock between two service threads competing for a shared cache lock and a DB connection lock. We resolved it by enforcing consistent lock acquisition order and switching to ConcurrentHashMap."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('m2')"><div class="qt">What is the difference between synchronized method and synchronized block?</div><span class="pill p-amber" style="flex-shrink:0">Common</span><i class="ti ti-chevron-down cv" id="im2" aria-hidden="true"></i></div>
+  <div class="cb" id="m2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>synchronized method</strong> — locks the entire object (or class for static). Only one thread can execute ANY synchronized method on that object at a time. Coarse-grained.<br><br>
+    <strong>synchronized block</strong> — locks only the specified object/resource. More fine-grained, better performance because other parts of the method can run concurrently.<div class="code-block">// Synchronized block — better performance
+public void process() {
+  // non-critical code runs freely
+  synchronized(this.cache) {
+    // only this section is locked
+    cache.update();
+  }
+  // more non-critical code
+}</div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('m3')"><div class="qt">What is a thread pool? Why use ExecutorService instead of creating threads manually?</div><span class="pill p-red" style="flex-shrink:0">High freq for senior</span><i class="ti ti-chevron-down cv" id="im3" aria-hidden="true"></i></div>
+  <div class="cb" id="m3">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Thread pool</strong> — a pool of pre-created threads ready to execute tasks. Avoids the overhead of creating/destroying threads for every task.<br><br>
+    <strong>ExecutorService</strong> is Java's thread pool framework. Benefits:<ul>
+    <li>Thread reuse — no repeated creation overhead</li>
+    <li>Controlled concurrency — limit max threads to prevent resource exhaustion</li>
+    <li>Task queue management — tasks wait if all threads are busy</li>
+    <li>Graceful shutdown via <span class="b">shutdown()</span> and <span class="b">awaitTermination()</span></li>
+    </ul>
+    <div class="code-block">ExecutorService pool = Executors.newFixedThreadPool(10);
+pool.submit(() -> processDocument(doc));
+pool.shutdown();</div>
+    <div class="tip"><p><strong>Your angle:</strong> "In our async processing backend for document workflows, we used a fixed thread pool via ExecutorService to handle parallel document processing — without it, unrestricted thread creation would have exhausted server memory under peak load."</p></div>
+  </div></div></div>
+</div>
+
+<!-- SQL -->
+<div id="sql" class="sec">
+  <div class="note"><p><strong>Pattern:</strong> SQL is always tested for Application Support Engineer roles — you're expected to debug DB issues, write queries, and understand indexes. Given your PostgreSQL/JSONB experience this is your strength — lead with it.</p></div>
+
+  <div class="qlabel">Query writing — expect at least one live query</div>
+
+  <div class="card"><div class="ch" onclick="t('s1')"><div class="qt">Write a query to find the second highest salary from an Employee table.</div><span class="pill p-red" style="flex-shrink:0">Classic — always asked</span><i class="ti ti-chevron-down cv" id="is1" aria-hidden="true"></i></div>
+  <div class="cb" id="s1">
+    <div class="al">Answer — know all 3 approaches</div>
+    <div class="at">
+    <div class="code-block">-- Approach 1: Subquery (most common answer)
+SELECT MAX(salary) FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+-- Approach 2: LIMIT/OFFSET (PostgreSQL, MySQL)
+SELECT DISTINCT salary FROM Employee
+ORDER BY salary DESC LIMIT 1 OFFSET 1;
+
+-- Approach 3: DENSE_RANK window function (best approach)
+SELECT salary FROM (
+  SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+  FROM Employee
+) ranked WHERE rnk = 2;</div>
+    <div class="tip"><p><strong>Show off:</strong> Mention DENSE_RANK as the preferred production approach — it handles ties correctly and scales. Your PostgreSQL experience with window functions is a real differentiator here.</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('s2')"><div class="qt">What is the difference between INNER JOIN, LEFT JOIN, and FULL OUTER JOIN?</div><span class="pill p-red" style="flex-shrink:0">Always tested</span><i class="ti ti-chevron-down cv" id="is2" aria-hidden="true"></i></div>
+  <div class="cb" id="s2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>INNER JOIN</strong> — returns only rows where there is a match in both tables.<br>
+    <strong>LEFT JOIN</strong> — returns all rows from the left table + matching rows from the right. Non-matching right rows → NULL.<br>
+    <strong>RIGHT JOIN</strong> — opposite of LEFT JOIN.<br>
+    <strong>FULL OUTER JOIN</strong> — returns all rows from both tables. Non-matching rows on either side → NULL.<br><br>
+    Application support use case: "When diagnosing a data discrepancy, I used LEFT JOIN to find records in the workflow table that had no corresponding entry in the document table — orphaned records from a failed migration."
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('s3')"><div class="qt">What are database indexes? When would you and wouldn't you use them?</div><span class="pill p-amber" style="flex-shrink:0">Senior-level</span><i class="ti ti-chevron-down cv" id="is3" aria-hidden="true"></i></div>
+  <div class="cb" id="s3">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Index</strong> — a data structure (usually B-tree) that speeds up SELECT queries on a column at the cost of slower writes and extra storage.<br><br>
+    <strong>Use indexes when:</strong> Columns used frequently in WHERE, JOIN, ORDER BY clauses; columns with high cardinality (many distinct values); large tables where full scans are slow.<br><br>
+    <strong>Avoid indexes when:</strong> Small tables (full scan faster); columns with very low cardinality (e.g. boolean); heavily write-intensive tables (indexes slow down INSERT/UPDATE/DELETE).<br><br>
+    <div class="tip"><p><strong>Your PostgreSQL angle:</strong> "In our Halliburton PDM platform, performance profiling on the 100k+ node hierarchy queries revealed missing composite indexes on frequently joined foreign keys. Adding targeted indexes reduced query response time by over 60%. We also used EXPLAIN ANALYZE in PostgreSQL to identify slow query plans."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('s4')"><div class="qt">What is a stored procedure? When would you use one in application support?</div><span class="pill p-amber" style="flex-shrink:0">Support-specific</span><i class="ti ti-chevron-down cv" id="is4" aria-hidden="true"></i></div>
+  <div class="cb" id="s4">
+    <div class="al">Answer</div>
+    <div class="at">A stored procedure is a precompiled set of SQL statements stored in the database and executed as a unit. Benefits: reduced network round trips, reusability, security (grant execute without exposing table structure).<br><br>
+    Application support use: Running complex data fix scripts, batch cleanup of orphaned records, automating periodic data reconciliation jobs — without needing application code changes.
+  </div></div></div>
+</div>
+
+<!-- APP SUPPORT SCENARIOS -->
+<div id="support" class="sec">
+  <div class="note"><p><strong>This is the most important section for your JD.</strong> The role is explicitly "software detectives." They will ask you scenario-based questions to see how you think through production issues. These are not trick questions — they want a structured, calm, methodical approach.</p></div>
+
+  <div class="qlabel">Scenario-based — core of the technical round for this role</div>
+
+  <div class="card"><div class="ch" onclick="t('sp1')"><div class="qt">A Java application is running in production and suddenly becomes very slow. How do you diagnose it?</div><span class="pill p-red" style="flex-shrink:0">Near-certain</span><i class="ti ti-chevron-down cv" id="isp1" aria-hidden="true"></i></div>
+  <div class="cb" id="sp1">
+    <div class="al">Your structured answer (5-step framework)</div>
+    <div class="at"><strong>Step 1 — Confirm and scope:</strong> Is it all users or specific users/regions? Is it all operations or specific endpoints? Check monitoring dashboards — CPU, memory, GC activity, DB connection pool.<br><br>
+    <strong>Step 2 — Check recent changes:</strong> Any deployment in the last 24 hrs? Config change? Data volume spike?<br><br>
+    <strong>Step 3 — Look at logs:</strong> Application logs for exceptions, slow query logs in DB, GC logs for full GC pauses.<br><br>
+    <strong>Step 4 — Profile the JVM:</strong> Take a thread dump (<span class="b">jstack</span>) to see if threads are blocked/deadlocked. Take a heap dump (<span class="b">jmap</span>) if memory is suspect. Use <span class="b">jstat</span> for GC stats.<br><br>
+    <strong>Step 5 — DB investigation:</strong> Check for slow queries, missing indexes, locking/blocking queries using <span class="b">pg_stat_activity</span> (PostgreSQL) or equivalent.<br><br>
+    <div class="tip"><p><strong>Tie to your work:</strong> "Exactly this process helped me diagnose a 35%+ UI rendering slowdown at Halliburton — traced it to N+1 query patterns in the tree node API plus missing index on a frequently joined FK column."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('sp2')"><div class="qt">A critical API is returning 500 errors intermittently. Walk me through your investigation.</div><span class="pill p-red" style="flex-shrink:0">Very likely</span><i class="ti ti-chevron-down cv" id="isp2" aria-hidden="true"></i></div>
+  <div class="cb" id="sp2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>1. Reproduce reliably:</strong> Identify the pattern — specific payload? Time of day? Specific users? Use request IDs/correlation IDs to trace in logs.<br><br>
+    <strong>2. Check server-side logs:</strong> Full stack trace of the 500. Is it a NullPointerException? DB timeout? External service failure?<br><br>
+    <strong>3. Check downstream dependencies:</strong> Is the DB up and responsive? Is any third-party service timing out? Check connection pool exhaustion.<br><br>
+    <strong>4. Check for data-specific issues:</strong> Does it fail for specific input? Edge case in data handling (null field, unexpected format).<br><br>
+    <strong>5. Hotfix path:</strong> Can we add a null-check or retry logic quickly without a full release? Use feature flags to disable the broken feature while fix is prepared.
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('sp3')"><div class="qt">How do you approach identifying a memory leak in a Java application?</div><span class="pill p-amber" style="flex-shrink:0">Senior-level</span><i class="ti ti-chevron-down cv" id="isp3" aria-hidden="true"></i></div>
+  <div class="cb" id="sp3">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Signs:</strong> Application slows down over time, OutOfMemoryError in logs, heap usage keeps growing even after GC.<br><br>
+    <strong>Investigation steps:</strong><ul>
+    <li>Monitor heap usage over time with JVM metrics or APM tool</li>
+    <li>Take heap dump: <span class="b">jmap -dump:format=b,file=heap.hprof &lt;pid&gt;</span></li>
+    <li>Analyse with Eclipse MAT or VisualVM — find which objects are growing unexpectedly</li>
+    <li>Common culprits: static collections holding references, unclosed DB connections, listeners not removed, caches without eviction policy</li>
+    </ul>
+    <div class="tip"><p><strong>Your angle:</strong> "In our Redis caching layer integration, we identified a memory leak caused by cache entries with no TTL set — objects were never evicted. Adding TTL policy and fixing the Java-side cache manager resolved it."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('sp4')"><div class="qt">How do you prioritise multiple production issues coming in simultaneously?</div><span class="pill p-red" style="flex-shrink:0">SME-level question</span><i class="ti ti-chevron-down cv" id="isp4" aria-hidden="true"></i></div>
+  <div class="cb" id="sp4">
+    <div class="al">Answer — this is testing your SME and leadership thinking</div>
+    <div class="at"><strong>Priority framework:</strong><ul>
+    <li><strong>P1 (Critical):</strong> System down, revenue impact, data loss risk → drop everything, page the team, all hands</li>
+    <li><strong>P2 (High):</strong> Major feature broken for subset of users → assign immediately, communicate ETA</li>
+    <li><strong>P3 (Medium):</strong> Workaround exists → schedule for next sprint</li>
+    <li><strong>P4 (Low):</strong> Cosmetic/minor → backlog</li>
+    </ul>
+    Communicate status to stakeholders immediately — even "we are investigating" is better than silence. Delegate P2s to team members while you focus on P1.<br><br>
+    <div class="tip"><p><strong>Your Scrum Master angle:</strong> "As Scrum Master and Project Lead at Halliburton, I managed parallel incident streams for global clients (KOC, ONGC). I created an incident triage board visible to all teams and facilitated a 15-min daily support stand-up separate from sprint ceremonies — which cut mean time to resolution by about 40%."</p></div>
+  </div></div></div>
+</div>
+
+<!-- PROJECT DEEP DIVE -->
+<div id="project" class="sec">
+  <div class="note"><p><strong>Pattern:</strong> At Accenture, for experienced candidates, the interviewer spends 10–15 minutes on your current project. They want to understand what YOU built, what problems YOU solved, and whether your tech choices were intentional. Prepare a crisp 3-minute project pitch and then be ready to go deep on any part.</p></div>
+
+  <div class="card"><div class="ch" onclick="t('p1')"><div class="qt">"Walk me through your most recent project — architecture, your role, and biggest challenge."</div><span class="pill p-red" style="flex-shrink:0">Guaranteed</span><i class="ti ti-chevron-down cv" id="ip1" aria-hidden="true"></i></div>
+  <div class="cb" id="p1">
+    <div class="al">Your ready script (adapt as needed)</div>
+    <div class="at">"At LTTS for the client Halliburton, I led the development of a large-scale enterprise PDM — Product Data Management — platform used by global oil and gas clients like KOC and ONGC. The platform managed complex product hierarchies with 100,000+ nodes.<br><br>
+    Architecturally, the frontend was a Micro Frontend platform using Angular v20 and Webpack Module Federation — 4+ independently deployable applications sharing a runtime. The backend was Java microservices using JAX-RS/Jersey REST APIs, PostgreSQL with JSONB for flexible data storage, and Redis for caching.<br><br>
+    My role was end-to-end — I owned frontend delivery, collaborated on backend API contracts, managed CI/CD with GitLab, handled security vulnerability resolution (Xray scan), set up Cypress E2E and Playwright testing, and acted as Scrum Master.<br><br>
+    The biggest technical challenge was rendering performance on hierarchical datasets with 100k+ nodes. I solved it through OnPush change detection, virtual scrolling, lazy loading with RxJS, and on-demand node rendering — achieving 35%+ improvement in visible wait times."
+    <div class="tip"><p><strong>Then be ready for:</strong> "How did you handle DB performance?" → JSONB indexing, query optimisation, EXPLAIN ANALYZE. "What was a production incident you resolved?" → Use the Xray security vulnerability or the async deadlock example.</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('p2')"><div class="qt">"You built an AI tool — Sprint Sense. Tell me more about it technically."</div><span class="pill p-amber" style="flex-shrink:0">They'll ask this</span><i class="ti ti-chevron-down cv" id="ip2" aria-hidden="true"></i></div>
+  <div class="cb" id="p2">
+    <div class="al">Answer</div>
+    <div class="at">"Sprint Sense was an internal productivity tool I built to automate sprint reporting and reduce manual overhead. It consumed sprint data from our project management system via REST APIs, sent it to an LLM API (similar to what Accenture's internal AI tools use), and generated structured sprint health summaries and onboarding documentation automatically.<br><br>
+    Technically it was a Node.js backend with REST API integration, LLM prompt engineering, and a simple Angular frontend. It reduced the time spent on sprint reporting by about 70% and became part of our standard team workflow."
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('p3')"><div class="qt">"You mentioned upgrading Angular from v4 to v20 — how did you manage that without regressions?"</div><span class="pill p-amber" style="flex-shrink:0">Deep-dive likely</span><i class="ti ti-chevron-down cv" id="ip3" aria-hidden="true"></i></div>
+  <div class="cb" id="p3">
+    <div class="al">Answer</div>
+    <div class="at">"We did it incrementally — never a big-bang upgrade. Each major version upgrade was a separate planned sprint cycle. Steps: run the Angular update tool to identify breaking changes, update one major version at a time, refactor deprecated APIs before proceeding, run full Cypress E2E suite after each upgrade, do a staged rollout to a canary environment before full production deployment.<br><br>
+    The most complex part was migrating from module-based to Standalone Components in newer versions, and adopting Signals-based reactivity. Zero production regressions was achievable because of the comprehensive test coverage we had in place."
+  </div></div></div>
+</div>
+
+<!-- QUESTIONS TO ASK -->
+<div id="ask" class="sec">
+  <div class="note"><p><strong>Always end the technical round with 2–3 sharp questions.</strong> It signals genuine interest, seniority, and that you're evaluating them as much as they're evaluating you. Weak close = weak impression regardless of your technical answers.</p></div>
+
+  <div class="qlabel">Best questions to ask the technical interviewer</div>
+
+  <div class="card"><div class="ch" onclick="t('q1')"><div class="qt">"What does the Java application stack look like for the systems I'd be supporting — microservices, monolith, or hybrid? What version of Java is in production?"</div><span class="pill p-blue" style="flex-shrink:0">Shows depth</span><i class="ti ti-chevron-down cv" id="iq1" aria-hidden="true"></i></div>
+  <div class="cb" id="q1"><div class="al">Why ask this</div><div class="at">Shows you think about the actual work environment, not just the interview. Their answer will also help you calibrate what's coming in subsequent rounds.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('q2')"><div class="qt">"What's the typical P1 incident flow — from detection to resolution? What monitoring and observability tools does the team use?"</div><span class="pill p-blue" style="flex-shrink:0">Role-specific signal</span><i class="ti ti-chevron-down cv" id="iq2" aria-hidden="true"></i></div>
+  <div class="cb" id="q2"><div class="al">Why ask this</div><div class="at">Directly maps to the JD's "software detectives" framing. Shows you're already thinking operationally about the job, not just technically. Great conversation opener with the interviewer.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('q3')"><div class="qt">"What's the biggest technical challenge the support team is currently dealing with that the person in this role would help solve?"</div><span class="pill p-blue" style="flex-shrink:0">Strongest closer</span><i class="ti ti-chevron-down cv" id="iq3" aria-hidden="true"></i></div>
+  <div class="cb" id="q3"><div class="al">Why ask this</div><div class="at">Turns the interview into a peer conversation. Their answer tells you what you'd actually be walking into — and gives you a chance to say "that's exactly the kind of problem I solved at Halliburton when..." — potentially the most memorable moment of the whole interview.</div></div></div>
+</div>
+
+</div>
+
+<script>
+function sw(id){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+}
+function t(id){
+  const cb=document.getElementById(id);
+  const ic=document.getElementById('i'+id);
+  if(cb){cb.classList.toggle('o')}
+  if(ic){ic.classList.toggle('o')}
+}
+</script>

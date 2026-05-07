@@ -1,0 +1,520 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.r{padding:1rem 0;font-family:var(--font-sans)}
+.topbar{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:12px 16px;margin-bottom:1.2rem}
+.tr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.t1{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.t2{font-size:12px;color:var(--color-text-secondary)}
+.pill{font-size:11px;font-weight:500;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.pr{background:#FCEBEB;color:#A32D2D}
+.pa{background:#FAEEDA;color:#854F0B}
+.pb{background:#E6F1FB;color:#185FA5}
+.pg{background:#EAF3DE;color:#3B6D11}
+.pp{background:#EEEDFE;color:#3C3489}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.2rem}
+.tb{border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;color:var(--color-text-secondary);background:transparent;transition:all .15s}
+.tb.on{background:var(--color-background-primary);border-color:var(--color-border-primary);color:var(--color-text-primary)}
+.sec{display:none}.sec.on{display:block}
+.note{border-left:3px solid #378ADD;padding:10px 14px;margin-bottom:1rem;border-radius:0}
+.warn{border-left:3px solid #D85A30;padding:10px 14px;margin-bottom:1rem;border-radius:0}
+.good{border-left:3px solid #1D9E75;padding:10px 14px;margin-bottom:1rem;border-radius:0}
+.note p,.warn p,.good p{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+.note strong,.warn strong,.good strong{font-weight:500;color:var(--color-text-primary)}
+.ql{font-size:10px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.08em;margin:1.2rem 0 6px}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:10px;overflow:hidden}
+.ch{padding:12px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:10px}
+.ch:hover{background:var(--color-background-secondary)}
+.qt{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;flex:1}
+.cv{font-size:15px;color:var(--color-text-tertiary);transition:transform .2s;flex-shrink:0;margin-top:1px}
+.cv.o{transform:rotate(180deg)}
+.cb{display:none;padding:0 16px 14px;border-top:0.5px solid var(--color-border-tertiary)}
+.cb.o{display:block}
+.al{font-size:10px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.07em;margin:10px 0 5px}
+.at{font-size:13px;color:var(--color-text-secondary);line-height:1.78}
+.at strong{font-weight:500;color:var(--color-text-primary)}
+.at ul{margin-left:16px;margin-top:4px}
+.at ul li{margin-bottom:3px}
+.cb .tip{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 12px;margin-top:10px}
+.cb .tip p{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+.cb .tip strong{font-weight:500;color:var(--color-text-primary)}
+.code{font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;margin:8px 0;line-height:1.65;color:var(--color-text-primary);white-space:pre-wrap;word-break:break-word}
+.b{font-family:var(--font-mono);background:var(--color-background-secondary);padding:1px 5px;border-radius:4px;font-size:12px;color:var(--color-text-primary)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:1rem}
+.mini{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
+.mini .ml{font-size:11px;font-weight:500}
+.mini .md{font-size:12px;color:var(--color-text-secondary);margin-top:3px;line-height:1.5}
+</style>
+
+<div class="r">
+<h2 class="sr-only">micro1 Fullstack Developer AI Interview Prep — Utkarsh Bhardwaj 2026</h2>
+
+<div class="topbar">
+  <div class="tr">
+    <span class="t1">micro1 Fullstack Developer — Complete AI Interview Prep</span>
+    <span class="pill pr">AI Interview (Zara)</span>
+    <span class="pill pa">Coding Exercise</span>
+    <span class="pill pb">~43 minutes</span>
+  </div>
+  <div class="t2">Based on micro1's own published questions + 2025–26 Glassdoor/Reddit candidate reports · Mapped to your Angular/React/Node.js/TypeScript profile</div>
+</div>
+
+<div class="tabs">
+  <button class="tb on" onclick="sw('format')">How Zara works</button>
+  <button class="tb" onclick="sw('rules')">Anti-cheat rules</button>
+  <button class="tb" onclick="sw('arch')">Architecture Qs</button>
+  <button class="tb" onclick="sw('js')">JavaScript deep</button>
+  <button class="tb" onclick="sw('node')">Node.js + APIs</button>
+  <button class="tb" onclick="sw('react')">React + Angular</button>
+  <button class="tb" onclick="sw('behav')">Behavioural Qs</button>
+  <button class="tb" onclick="sw('code')">Coding exercise</button>
+  <button class="tb" onclick="sw('tips')">Winning tactics</button>
+</div>
+
+<!-- FORMAT -->
+<div id="format" class="sec on">
+  <div class="note"><p><strong>This is not a normal interview.</strong> Zara is an AI avatar — no human is on the other side. It uses "Adaptive Branching": every keyword you say can trigger a follow-up question. It scores your technical depth, communication clarity, and seniority level simultaneously. <strong>The AI is literally deciding your score in real-time based on how you phrase things.</strong></p></div>
+
+  <div class="ql">Session structure (~43 minutes for your role)</div>
+  <div class="grid2">
+    <div class="mini"><div class="ml" style="color:#185FA5">Phase 1 · ~5 min</div><div class="md">Brief intro + background. Zara calibrates your seniority level from your first 2–3 answers.</div></div>
+    <div class="mini"><div class="ml" style="color:#854F0B">Phase 2 · ~15 min</div><div class="md">Deep technical questions — architecture, JavaScript, Node.js, React/Angular trade-offs.</div></div>
+    <div class="mini"><div class="ml" style="color:#3B6D11">Phase 3 · ~8 min</div><div class="md">Scenario-based + behavioural questions. Communication style, teamwork, problem-solving.</div></div>
+    <div class="mini"><div class="ml" style="color:#3C3489">Phase 4 · ~15 min</div><div class="md">Coding exercise in Monaco editor (VS Code-like). Timed. No paste allowed. Talk while you type.</div></div>
+  </div>
+
+  <div class="ql">What Zara actually scores you on</div>
+  <div class="card"><div class="ch" onclick="t('f1')"><div class="qt">How does Zara's adaptive branching work — and why does it matter?</div><i class="ti ti-chevron-down cv" id="if1" aria-hidden="true"></i></div>
+  <div class="cb" id="f1">
+    <div class="al">Critical to understand before you start</div>
+    <div class="at">Zara is <strong>not reading from a script.</strong> It generates follow-up questions on the fly based on keywords you say. If you mention "Webpack Module Federation" — Zara will ask about it in depth. If you say "I used Redis for caching" — Zara will probe cache invalidation strategies.<br><br>
+    <strong>The scoring rubric has 4 dimensions:</strong><ul>
+    <li><strong>Technical Depth:</strong> Do you discuss trade-offs, not just definitions?</li>
+    <li><strong>Seniority Calibration:</strong> Do you sound like a senior or a junior?</li>
+    <li><strong>Communication Clarity:</strong> Are your answers structured and concise?</li>
+    <li><strong>Integrity Score:</strong> Is the proctoring AI (Ava) flagging suspicious behaviour?</li>
+    </ul>
+    <div class="tip"><p><strong>The golden rule:</strong> Only mention technologies you can defend deeply. Your Angular/TypeScript/RxJS/Webpack Module Federation experience is your real depth — lead from there. Don't casually mention Kubernetes or GraphQL unless you can answer 3 follow-up questions on each.</p></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ANTI-CHEAT RULES -->
+<div id="rules" class="sec">
+  <div class="warn"><p><strong>Ava — the proctoring AI — is watching you the entire time.</strong> This is not optional. A failed integrity score means auto-rejection regardless of your technical performance. Read every rule below before you sit down.</p></div>
+
+  <div class="ql">Hard rules — violating any of these = immediate fail</div>
+  <div class="card"><div class="ch" onclick="t('r1')"><div class="qt">Eye & gaze tracking — never look away from screen</div><span class="pill pr" style="flex-shrink:0">Auto-fail</span><i class="ti ti-chevron-down cv" id="ir1" aria-hidden="true"></i></div>
+  <div class="cb" id="r1"><div class="al">What Ava watches</div><div class="at">Ava uses webcam gaze detection. Eyes drifting repeatedly to a second monitor, looking down at a phone, or looking off-screen for more than a few seconds triggers a "Focus Violation" flag. <strong>Sit face-on to a single screen, good lighting on your face, camera at eye level.</strong> If you need to think, look slightly up or to the side — that's natural. Repeated off-screen darting is not.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('r2')"><div class="qt">No copy-paste in the code editor</div><span class="pill pr" style="flex-shrink:0">Auto-fail</span><i class="ti ti-chevron-down cv" id="ir2" aria-hidden="true"></i></div>
+  <div class="cb" id="r2"><div class="al">Monaco editor restriction</div><div class="at">The coding exercise uses a Monaco-based editor (like VS Code in browser). <strong>Clipboard is disabled — Ctrl+C/V and Cmd+C/V do not work.</strong> You cannot paste code from notes, ChatGPT, or anywhere else. You must type everything from memory. This means your coding prep needs to be actual muscle memory, not reference lookup.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('r3')"><div class="qt">Tab switching is recorded — disable AI browser extensions</div><span class="pill pr" style="flex-shrink:0">Auto-fail</span><i class="ti ti-chevron-down cv" id="ir3" aria-hidden="true"></i></div>
+  <div class="cb" id="r3"><div class="al">Before you start</div><div class="at"><strong>Disable ALL browser extensions</strong> — especially any AI coding copilots (GitHub Copilot, Codeium, Grammarly, etc.). Ava detects code injection from extensions. Clicking outside the browser window is logged. Cmd+Tab or Alt+Tab is logged. Keep only the interview tab open.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('r4')"><div class="qt">Talk while you type — Zara flags silence</div><span class="pill pa" style="flex-shrink:0">Important</span><i class="ti ti-chevron-down cv" id="ir4" aria-hidden="true"></i></div>
+  <div class="cb" id="r4"><div class="al">Voice Activity Detection</div><div class="at">Zara uses VAD (Voice Activity Detection). If you go silent for too long — even during coding — it will interrupt you or score you down for communication. <strong>Narrate your thinking out loud while coding.</strong> "I'm going to use a closure here to encapsulate the counter state... I'll initialise the function with the initial value as a parameter..." This also signals seniority — it's what good senior engineers do in interviews.</div></div></div>
+
+  <div class="good"><p><strong>Setup checklist before you click Start:</strong> Single screen · Camera at eye level · Good lighting · Quiet room · Disable all browser extensions · Close all other tabs · Phone face-down and silent · Full-screen the interview window · Test microphone + camera in advance.</p></div>
+</div>
+
+<!-- ARCHITECTURE -->
+<div id="arch" class="sec">
+  <div class="note"><p><strong>Architecture questions are how Zara calibrates senior vs junior.</strong> These are published directly on micro1's site as the fullstack question category. Generic answers get junior scores. Trade-off language triggers senior scores. Always explicitly state what you're sacrificing in a design choice.</p></div>
+
+  <div class="ql">From micro1's own published fullstack question list</div>
+
+  <div class="card"><div class="ch" onclick="t('a1')"><div class="qt">Explain the trade-offs between microservices, monolith, and serverless for a large-scale web application.</div><span class="pill pr" style="flex-shrink:0">Verbatim from micro1</span><i class="ti ti-chevron-down cv" id="ia1" aria-hidden="true"></i></div>
+  <div class="cb" id="a1">
+    <div class="al">Answer — lead with trade-offs not definitions</div>
+    <div class="at"><strong>Monolith:</strong> Fast to build, easy to debug locally, single deployment. Trade-off: scales as one unit — a spike in one feature starves others. Becomes harder to maintain at scale as teams grow. <strong>When I'd choose it:</strong> early-stage product, small team, tight deadline.<br><br>
+    <strong>Microservices:</strong> Independent scaling per service, team autonomy, fault isolation. Trade-off: distributed systems complexity — network failures, eventual consistency, service discovery overhead, harder to debug across boundaries. <strong>When I'd choose it:</strong> large teams, distinct bounded domains, enterprise scale. This is what I built at Halliburton — 4+ independently deployable Angular Micro Frontend applications using Webpack Module Federation with a shared runtime, mirroring microservices architecture on the frontend.<br><br>
+    <strong>Serverless:</strong> Zero infrastructure management, true pay-per-use, auto-scales. Trade-off: cold start latency, vendor lock-in, statelessness constraints, hard to debug locally, unsuitable for long-running processes. <strong>When I'd choose it:</strong> event-driven workloads, APIs with unpredictable traffic, AI training data pipelines (exactly relevant to this role).
+    <div class="tip"><p><strong>Zara trigger warning:</strong> If you mention Webpack Module Federation, Zara will ask "how did you handle shared dependency versioning across MFEs?" — Answer: singleton pattern for shared libs, explicit version pinning in module federation config, and runtime chunk deduplication.</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('a2')"><div class="qt">How would you diagnose and resolve a sporadic high-latency issue in a production system involving multiple services and databases?</div><span class="pill pr" style="flex-shrink:0">Verbatim from micro1</span><i class="ti ti-chevron-down cv" id="ia2" aria-hidden="true"></i></div>
+  <div class="cb" id="a2">
+    <div class="al">Answer — use your real production debugging story</div>
+    <div class="at"><strong>Step 1 — Establish baseline + scope:</strong> Is latency consistent or spiky? All users or subset? All endpoints or specific? Check monitoring — CPU, memory, DB connection pool, GC activity, external API response times.<br><br>
+    <strong>Step 2 — Distributed tracing:</strong> Use correlation IDs to trace a slow request end-to-end across services. Identify which service/database is the bottleneck — frontend, Node.js API layer, or DB?<br><br>
+    <strong>Step 3 — DB investigation:</strong> Run <span class="b">EXPLAIN ANALYZE</span> on slow queries. Check for missing indexes, N+1 query patterns, lock contention. Check connection pool exhaustion.<br><br>
+    <strong>Step 4 — Check for external dependencies:</strong> Third-party API timeouts? Redis cache miss rate spike?<br><br>
+    <strong>Step 5 — Frontend contribution:</strong> Check network waterfall — large bundle sizes, unoptimised API calls, render-blocking resources?<br><br>
+    <div class="tip"><p><strong>Tie to your work:</strong> "I diagnosed a 35%+ UI performance regression on 100k+ node hierarchical data at Halliburton. Root cause was N+1 API calls from the Angular tree component + missing composite index on PostgreSQL JSONB columns. Fixed via virtual scrolling, on-demand lazy loading, and targeted DB indexes."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('a3')"><div class="qt">How would you design a secure authentication and authorisation system for a multi-tenant SaaS application?</div><span class="pill pr" style="flex-shrink:0">Verbatim from micro1</span><i class="ti ti-chevron-down cv" id="ia3" aria-hidden="true"></i></div>
+  <div class="cb" id="a3">
+    <div class="al">Answer — architecture + security trade-offs</div>
+    <div class="at"><strong>Auth layer:</strong> Use OAuth 2.0 + OpenID Connect (OIDC) for authentication. JWT tokens for stateless session management — short-lived access tokens (15 min), long-lived refresh tokens stored in httpOnly cookies (prevents XSS theft).<br><br>
+    <strong>Multi-tenancy isolation:</strong> Tenant ID embedded in JWT claims. Every DB query scoped by tenant ID — enforced at the service/ORM layer, not just the API layer. Use Row-Level Security (RLS) in PostgreSQL for DB-level enforcement.<br><br>
+    <strong>Authorisation:</strong> RBAC (Role-Based Access Control) with per-tenant role definitions. Avoid privilege escalation by validating tenant context on every request, not just at login.<br><br>
+    <strong>Common vulnerabilities to address:</strong><ul>
+    <li>Cross-tenant data leakage — enforce tenant scoping at every query</li>
+    <li>JWT algorithm confusion — explicitly specify RS256, never HS256 with shared secret</li>
+    <li>CSRF — use SameSite cookies + CSRF tokens for state-changing ops</li>
+    <li>Rate limiting — per tenant + per IP on auth endpoints</li>
+    </ul>
+    <div class="tip"><p><strong>This directly maps to AI training project security</strong> — micro1 works with AI labs where data isolation between clients is critical. Mentioning Row-Level Security and tenant scoping will register as senior-level thinking.</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('a4')"><div class="qt">How do you ensure data consistency in a highly available full-stack app that supports eventual consistency across multiple geographic regions?</div><span class="pill pr" style="flex-shrink:0">Verbatim from micro1</span><i class="ti ti-chevron-down cv" id="ia4" aria-hidden="true"></i></div>
+  <div class="cb" id="a4">
+    <div class="al">Answer — CAP theorem framing scores senior</div>
+    <div class="at"><strong>CAP theorem framing:</strong> You cannot have Consistency, Availability, and Partition Tolerance simultaneously. For a globally distributed system, you typically choose Availability + Partition Tolerance (AP), accepting eventual consistency.<br><br>
+    <strong>Strategies:</strong><ul>
+    <li><strong>Event sourcing + CQRS:</strong> Write events to an append-only log; replicate across regions. Each region eventually processes the same events.</li>
+    <li><strong>Conflict resolution:</strong> Last-write-wins (simple), vector clocks (complex), CRDTs for data types that merge without conflicts (counters, sets).</li>
+    <li><strong>Read-your-writes consistency:</strong> After a write, subsequent reads from the same session are routed to the write replica briefly before falling back to read replicas.</li>
+    <li><strong>Saga pattern:</strong> For distributed transactions across microservices — compensating transactions instead of 2PC.</li>
+    </ul>
+    <strong>Trade-off I'd accept:</strong> Stale reads for a few hundred milliseconds is acceptable for most UI data. Critical operations (payments, auth) use strong consistency on the primary region.
+  </div></div></div>
+</div>
+
+<!-- JAVASCRIPT -->
+<div id="js" class="sec">
+  <div class="note"><p><strong>JavaScript is the core focus area</strong> for this role — the JD says "expert proficiency." Zara will probe closures, async patterns, prototypal inheritance, and the event loop. Your TypeScript + RxJS background is a major advantage — draw parallels explicitly.</p></div>
+
+  <div class="card"><div class="ch" onclick="t('js1')"><div class="qt">Explain the JavaScript event loop. How do microtasks differ from macrotasks?</div><span class="pill pr" style="flex-shrink:0">Classic depth check</span><i class="ti ti-chevron-down cv" id="ijs1" aria-hidden="true"></i></div>
+  <div class="cb" id="js1">
+    <div class="al">Answer</div>
+    <div class="at">JavaScript is single-threaded. The event loop manages async execution by coordinating the call stack, Web APIs, and task queues.<br><br>
+    <strong>Execution order:</strong> Call stack runs synchronous code → microtask queue is fully drained after each task → then one macrotask is picked from the macrotask queue → repeat.<br><br>
+    <strong>Microtasks</strong> (higher priority): Promise callbacks (<span class="b">.then</span>, <span class="b">.catch</span>), <span class="b">queueMicrotask()</span>, MutationObserver. Run before the browser renders and before the next macrotask.<br><br>
+    <strong>Macrotasks</strong> (lower priority): <span class="b">setTimeout</span>, <span class="b">setInterval</span>, I/O callbacks, UI events.<br><br>
+    <div class="code">console.log('1');
+setTimeout(() => console.log('4 - macrotask'), 0);
+Promise.resolve().then(() => console.log('3 - microtask'));
+console.log('2');
+// Output: 1, 2, 3, 4</div>
+    <div class="tip"><p><strong>Your RxJS angle:</strong> "Understanding the event loop is critical for RxJS — Observable emissions can be synchronous or async depending on the scheduler. In Angular, Zone.js patches browser async APIs to trigger change detection, which required deep event loop knowledge for optimising our 100k-node tree rendering."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('js2')"><div class="qt">What is a closure? Give a real production use case.</div><span class="pill pr" style="flex-shrink:0">Always asked</span><i class="ti ti-chevron-down cv" id="ijs2" aria-hidden="true"></i></div>
+  <div class="cb" id="js2">
+    <div class="al">Answer</div>
+    <div class="at">A closure is a function that <strong>retains access to its outer scope even after the outer function has returned.</strong> The inner function "closes over" the variables of its enclosing scope.<br><br>
+    <div class="code">// Factory function — closure for private state
+function createCounter(initial = 0) {
+  let count = initial; // private — not accessible directly
+  return {
+    increment: () => ++count,
+    decrement: () => --count,
+    value: () => count
+  };
+}
+const counter = createCounter(10);
+counter.increment(); // 11
+counter.increment(); // 12
+counter.value();     // 12</div>
+    <strong>Production use cases:</strong><ul>
+    <li>Module pattern — encapsulating private state before ES6 classes</li>
+    <li>Event listeners that need to capture loop variables correctly</li>
+    <li>Memoization — caching expensive function results</li>
+    <li>Partial application / currying — pre-filling function arguments</li>
+    </ul>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('js3')"><div class="qt">Explain Promise, async/await, and when you'd use one over the other.</div><span class="pill pa" style="flex-shrink:0">Likely</span><i class="ti ti-chevron-down cv" id="ijs3" aria-hidden="true"></i></div>
+  <div class="cb" id="js3">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Promise</strong> — represents a value that will be available in the future. Chainable with <span class="b">.then()</span> and <span class="b">.catch()</span>. Good for concurrent operations with <span class="b">Promise.all()</span>.<br><br>
+    <strong>async/await</strong> — syntactic sugar over Promises. Makes async code read like synchronous code. Better for sequential logic. Error handling with try/catch is more natural than nested <span class="b">.catch()</span>.<br><br>
+    <div class="code">// Promise.all for parallel — faster than sequential awaits
+const [users, products] = await Promise.all([
+  fetchUsers(),
+  fetchProducts()
+]);
+
+// async/await for sequential — when order matters
+const user = await fetchUser(id);
+const orders = await fetchOrders(user.id); // depends on user.id</div>
+    <div class="tip"><p><strong>Your angle:</strong> "In our Node.js API layer, we parallelised independent data fetches using Promise.all to reduce latency. RxJS forkJoin on the Angular side is the observable equivalent."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('js4')"><div class="qt">What is prototypal inheritance? How does it differ from classical inheritance?</div><span class="pill pa" style="flex-shrink:0">Senior depth check</span><i class="ti ti-chevron-down cv" id="ijs4" aria-hidden="true"></i></div>
+  <div class="cb" id="js4">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Prototypal inheritance:</strong> Objects directly inherit from other objects via the prototype chain. Every JS object has an internal <span class="b">[[Prototype]]</span> link. When a property isn't found on an object, JS walks up the chain.<br><br>
+    <strong>Classical inheritance (Java/C++):</strong> Class definitions act as blueprints. Instances are created from classes. Deep, rigid hierarchy.<br><br>
+    <strong>JS classes (ES6):</strong> Syntactic sugar over prototypal inheritance — they look classical but are still prototype-based under the hood.<br><br>
+    <div class="code">// Prototype chain
+const animal = { breathes: true };
+const dog = Object.create(animal); // dog's prototype is animal
+dog.barks = true;
+console.log(dog.breathes); // true — found up the chain
+console.log(Object.getPrototypeOf(dog) === animal); // true</div>
+  </div></div></div>
+</div>
+
+<!-- NODE.JS -->
+<div id="node" class="sec">
+  <div class="note"><p><strong>Node.js + RESTful APIs</strong> is the explicit focus area listed in the interview email. The JD says "extensive background in backend development using Node.js." Your experience integrating REST APIs in the Halliburton platform + Oracle's high-traffic REST API work is your foundation here.</p></div>
+
+  <div class="card"><div class="ch" onclick="t('n1')"><div class="qt">How does Node.js handle concurrent connections if it's single-threaded?</div><span class="pill pr" style="flex-shrink:0">Fundamental depth check</span><i class="ti ti-chevron-down cv" id="in1" aria-hidden="true"></i></div>
+  <div class="cb" id="n1">
+    <div class="al">Answer</div>
+    <div class="at">Node.js is single-threaded for JavaScript execution but uses a <strong>non-blocking I/O model via libuv</strong>, which manages a thread pool for I/O operations.<br><br>
+    When Node.js handles a network request, I/O operations (DB queries, file reads, external API calls) are delegated to the OS or libuv's thread pool — the main thread doesn't block. When the I/O completes, the callback is queued in the event loop for execution.<br><br>
+    <strong>This makes Node.js excellent for:</strong> High-concurrency, I/O-bound workloads (APIs, real-time, file serving). <strong>Poor for:</strong> CPU-intensive tasks (image processing, ML inference) — use Worker Threads or a separate service for those.<br><br>
+    <div class="tip"><p><strong>AI training angle:</strong> "For this role — AI training data pipelines — Node.js is ideal for orchestrating data ingestion, API calls to labelling services, and streaming large datasets, because these are I/O-bound. CPU-intensive preprocessing would live in a separate Python/C++ service."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('n2')"><div class="qt">Design a RESTful API for a resource (e.g. user management). What are REST best practices?</div><span class="pill pr" style="flex-shrink:0">Scenario ask</span><i class="ti ti-chevron-down cv" id="in2" aria-hidden="true"></i></div>
+  <div class="cb" id="n2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>REST principles:</strong> Resource-based URLs (nouns not verbs), stateless (no server session), use HTTP methods correctly, proper status codes, versioning.<br><br>
+    <div class="code">GET    /api/v1/users          // list users (200)
+POST   /api/v1/users          // create user (201)
+GET    /api/v1/users/:id      // get user (200 / 404)
+PUT    /api/v1/users/:id      // full update (200)
+PATCH  /api/v1/users/:id      // partial update (200)
+DELETE /api/v1/users/:id      // delete (204)</div>
+    <strong>Best practices:</strong><ul>
+    <li>Versioning in URL path (<span class="b">/v1/</span>) or header</li>
+    <li>Pagination: <span class="b">?page=2&limit=20</span> or cursor-based for large datasets</li>
+    <li>Filter/sort via query params: <span class="b">?status=active&sort=createdAt:desc</span></li>
+    <li>Consistent error response shape: <span class="b">{ error: { code, message, details } }</span></li>
+    <li>Rate limiting, authentication (Bearer token/API key) on all endpoints</li>
+    <li>HATEOAS for discoverability (optional but shows depth)</li>
+    </ul>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('n3')"><div class="qt">How do you handle security in a Node.js/Express API? Name common vulnerabilities.</div><span class="pill pa" style="flex-shrink:0">Security depth</span><i class="ti ti-chevron-down cv" id="in3" aria-hidden="true"></i></div>
+  <div class="cb" id="n3">
+    <div class="al">Answer</div>
+    <div class="at"><ul>
+    <li><strong>SQL/NoSQL Injection:</strong> Use parameterised queries / ORM; never string-concatenate user input into queries</li>
+    <li><strong>XSS:</strong> Sanitise all user input; use Content-Security-Policy headers; httpOnly cookies</li>
+    <li><strong>CSRF:</strong> SameSite cookie attribute; CSRF tokens for state-mutating requests</li>
+    <li><strong>JWT security:</strong> Validate signature algorithm explicitly; short-lived access tokens; store refresh tokens in httpOnly cookies not localStorage</li>
+    <li><strong>Rate limiting:</strong> <span class="b">express-rate-limit</span> to prevent brute force and DoS</li>
+    <li><strong>Helmet.js:</strong> Sets secure HTTP headers in one line</li>
+    <li><strong>Dependency scanning:</strong> Regular <span class="b">npm audit</span>; CI pipeline Xray/Snyk scans (I ran this at Halliburton, resolved critical CVEs)</li>
+    </ul>
+  </div></div></div>
+</div>
+
+<!-- REACT + ANGULAR -->
+<div id="react" class="sec">
+  <div class="note"><p><strong>This is your strongest area.</strong> The JD requires both React and Angular. You have 10+ years of Angular depth and React integration experience. <strong>Lead with Angular depth, show React breadth.</strong> Zara will likely ask about framework trade-offs and when you'd choose each.</p></div>
+
+  <div class="card"><div class="ch" onclick="t('fw1')"><div class="qt">When would you choose React over Angular, or vice versa? What are the key trade-offs?</div><span class="pill pr" style="flex-shrink:0">Guaranteed — you must nail this</span><i class="ti ti-chevron-down cv" id="ifw1" aria-hidden="true"></i></div>
+  <div class="cb" id="fw1">
+    <div class="al">Answer — this is where your 10yr depth shines</div>
+    <div class="at"><strong>Angular strengths (my primary depth):</strong> Opinionated full framework — routing, forms, HTTP, DI all built-in. TypeScript first-class. Excellent for large enterprise teams with strict structure requirements. Standalone Components, Signals, and Zone.js-less change detection in v17+ make it competitive for performance. I've taken it from v4 to v20 across a large enterprise codebase.<br><br>
+    <strong>React strengths:</strong> Flexible library (not framework) — you compose your own stack. Larger ecosystem. Lower learning curve for smaller teams. Better for rapid prototyping, diverse team composition. I've integrated React within our Angular Micro Frontend shell for cross-team feature delivery.<br><br>
+    <strong>When I'd choose Angular:</strong> Enterprise platform, large team, need consistent patterns enforced, long-term maintainability.<br><br>
+    <strong>When I'd choose React:</strong> Startup moving fast, smaller team, need maximum ecosystem flexibility, rendering-heavy UI with fine-grained control.
+    <div class="tip"><p><strong>Zara follow-up likely:</strong> "You mentioned Signals in Angular — how do they compare to React's useState?" → Angular Signals are fine-grained reactive primitives that bypass Zone.js change detection entirely, similar to React's useState but with automatic dependency tracking like Solid.js. Both avoid re-rendering the entire component tree on every state change.</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('fw2')"><div class="qt">How do you manage state in a large React or Angular application?</div><span class="pill pr" style="flex-shrink:0">Architecture signal</span><i class="ti ti-chevron-down cv" id="ifw2" aria-hidden="true"></i></div>
+  <div class="cb" id="fw2">
+    <div class="al">Answer</div>
+    <div class="at"><strong>Angular:</strong> RxJS BehaviorSubjects / Signals for local state. NgRx (Redux pattern) for global app state in large apps. Angular's DI system makes service-based state sharing clean. In our platform I used RxJS-based state services for cross-module data sharing between MFE applications.<br><br>
+    <strong>React:</strong> Local: <span class="b">useState</span>, <span class="b">useReducer</span>. Shared: Context API for light global state (theme, auth). Redux Toolkit or Zustand for complex global state. React Query / TanStack Query for server state management (caching, refetching) — separates UI state from server state cleanly.<br><br>
+    <strong>The key principle I apply:</strong> Colocate state as close to where it's used as possible. Only lift state up when multiple components need it. Global state should be minimal — most state is local or server-cached.
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('fw3')"><div class="qt">What is virtual DOM in React and how does Angular's change detection differ?</div><span class="pill pa" style="flex-shrink:0">Senior comparison</span><i class="ti ti-chevron-down cv" id="ifw3" aria-hidden="true"></i></div>
+  <div class="cb" id="fw3">
+    <div class="al">Answer</div>
+    <div class="at"><strong>React Virtual DOM:</strong> React maintains a lightweight in-memory copy of the DOM. On state change, it re-renders the virtual DOM, diffs it against the previous version (reconciliation), and applies only the minimal real DOM changes. Efficient but introduces the reconciliation overhead.<br><br>
+    <strong>Angular Change Detection:</strong> Default strategy checks all components in the tree on any async event (Zone.js patches everything). <strong>OnPush strategy</strong> (which I use extensively) restricts checks to when an <span class="b">@Input</span> reference changes or an Observable emits — much more performant. In v17+ with Signals, Angular is moving toward fine-grained reactivity that bypasses Zone entirely — eliminating the need for virtual DOM diffing altogether.<br><br>
+    <div class="tip"><p><strong>Your production proof:</strong> "OnPush + RxJS-optimised lazy loading was the primary performance optimisation that delivered 35%+ rendering improvement on 100k+ node datasets at Halliburton."</p></div>
+  </div></div></div>
+</div>
+
+<!-- BEHAVIOURAL -->
+<div id="behav" class="sec">
+  <div class="note"><p><strong>Zara asks behavioural questions using a specific formula:</strong> it scores Context → Logic → Resolution → Outcome. "Tell me about a time..." questions need all four elements. The AI also evaluates communication clarity — be concise and structured, not rambling.</p></div>
+
+  <div class="card"><div class="ch" onclick="t('b1')"><div class="qt">"Tell me about a project where communication broke down. How did you handle it?"</div><span class="pill pr" style="flex-shrink:0">Published by micro1</span><i class="ti ti-chevron-down cv" id="ib1" aria-hidden="true"></i></div>
+  <div class="cb" id="b1">
+    <div class="al">CLRO answer (Context→Logic→Resolution→Outcome)</div>
+    <div class="at"><strong>Context:</strong> During an Angular upgrade cycle from v12 to v17 at Halliburton, the frontend team and the Java backend team had diverging assumptions about a breaking API contract change — neither team had flagged the incompatibility until integration testing, two days before the release window.<br><br>
+    <strong>Logic:</strong> The root cause was that we had no shared API contract document and no contract testing in the CI pipeline. Both teams were working in isolation with assumptions.<br><br>
+    <strong>Resolution:</strong> I facilitated an emergency alignment session, created a shared API contract in OpenAPI/Swagger format as the single source of truth, and introduced contract tests in GitLab CI so future changes would fail fast rather than at integration time.<br><br>
+    <strong>Outcome:</strong> The release shipped one day late — but we shipped it clean with zero post-deployment defects. The API contract process became our standard across all four MFE teams going forward.
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('b2')"><div class="qt">"Tell me about a time you disagreed with a senior engineer or technical decision. What happened?"</div><span class="pill pr" style="flex-shrink:0">Published by micro1</span><i class="ti ti-chevron-down cv" id="ib2" aria-hidden="true"></i></div>
+  <div class="cb" id="b2">
+    <div class="al">CLRO answer</div>
+    <div class="at"><strong>Context:</strong> The original architecture plan for our Micro Frontend platform was a single large Angular application with lazy-loaded modules. A senior architect preferred this for simplicity.<br><br>
+    <strong>Logic:</strong> I disagreed — with 4 independent teams and different release cadences, a monorepo module approach would create deployment coupling. A team fixing a critical bug would have to wait for all other teams to sign off on a shared release.<br><br>
+    <strong>Resolution:</strong> I prepared a technical proposal with Webpack Module Federation as the alternative — showing how it enabled independent deployments, team autonomy, and shared runtime without coupling. I used a prototype to demonstrate it worked with our stack before presenting to the team.<br><br>
+    <strong>Outcome:</strong> The architect reviewed the prototype and agreed. We adopted Module Federation — it directly enabled 4 independently deployable MFE applications and improved our release cadence by removing cross-team deployment dependencies.
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('b3')"><div class="qt">"How do you work in a remote, globally distributed team? What challenges have you faced?"</div><span class="pill pa" style="flex-shrink:0">JD-specific</span><i class="ti ti-chevron-down cv" id="ib3" aria-hidden="true"></i></div>
+  <div class="cb" id="b3">
+    <div class="al">Answer</div>
+    <div class="at">"I've been working with globally distributed clients — Halliburton serves KOC in Kuwait and ONGC in India from our Bengaluru base — so async and cross-timezone collaboration is already my normal.<br><br>
+    The practices I use: over-document decisions in writing (not just verbal), async-first communication with clear SLAs on responses, short daily sync touchpoints rather than long ad-hoc meetings, and keeping shared context in Confluence/Notion so no one is blocked waiting for someone online.<br><br>
+    The biggest challenge is timezone-induced delays in unblocking dependencies. I handle this by anticipating blockers in advance — flag them at the end of my workday so the other team can address them during their day."
+  </div></div></div>
+</div>
+
+<!-- CODING EXERCISE -->
+<div id="code" class="sec">
+  <div class="note"><p><strong>The coding exercise is where candidates fail most.</strong> No paste, Monaco editor, you must talk while typing. Focus areas: JavaScript algorithms, array manipulation, async patterns, string processing. Intermediate difficulty — not LeetCode hard, but requires confident typing from memory.</p></div>
+
+  <div class="warn"><p><strong>Critical reminders:</strong> Type everything by hand. Narrate your logic out loud as you type. Don't go silent. If you get stuck, verbalise your thinking — "I'm considering two approaches here..." scores better than silence.</p></div>
+
+  <div class="ql">Most likely question types for fullstack JS roles</div>
+
+  <div class="card"><div class="ch" onclick="t('ce1')"><div class="qt">Write a function to find all duplicate elements in an array.</div><span class="pill pr" style="flex-shrink:0">Glassdoor confirmed</span><i class="ti ti-chevron-down cv" id="ice1" aria-hidden="true"></i></div>
+  <div class="cb" id="ce1">
+    <div class="al">Solution — memorise this pattern</div>
+    <div class="code">function findDuplicates(arr) {
+  const seen = new Set();
+  const duplicates = new Set();
+  
+  for (const item of arr) {
+    if (seen.has(item)) {
+      duplicates.add(item);
+    } else {
+      seen.add(item);
+    }
+  }
+  
+  return [...duplicates];
+}
+
+// Test
+console.log(findDuplicates([1, 2, 3, 2, 4, 3, 5])); // [2, 3]</div>
+    <div class="tip"><p><strong>What to say while typing:</strong> "I'll use two Sets — one to track seen elements and one to collect duplicates. Using Set gives O(1) lookup, making the overall complexity O(n) time and O(n) space. I'm iterating once through the array..."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('ce2')"><div class="qt">Implement a debounce function in JavaScript.</div><span class="pill pr" style="flex-shrink:0">Classic fullstack ask</span><i class="ti ti-chevron-down cv" id="ice2" aria-hidden="true"></i></div>
+  <div class="cb" id="ce2">
+    <div class="al">Solution — highly likely for frontend-aware role</div>
+    <div class="code">function debounce(fn, delay) {
+  let timer = null;
+  
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+// Usage
+const handleSearch = debounce((query) => {
+  fetchSearchResults(query);
+}, 300);
+
+// fires only after user stops typing for 300ms</div>
+    <div class="tip"><p><strong>What to say:</strong> "Debounce delays execution until a pause occurs — ideal for search inputs, resize handlers. I use this pattern extensively in Angular with RxJS debounceTime operator — same concept, reactive style."</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('ce3')"><div class="qt">Write an async function that fetches data from multiple URLs in parallel and returns all results.</div><span class="pill pa" style="flex-shrink:0">Async pattern test</span><i class="ti ti-chevron-down cv" id="ice3" aria-hidden="true"></i></div>
+  <div class="cb" id="ce3">
+    <div class="al">Solution</div>
+    <div class="code">async function fetchAll(urls) {
+  try {
+    const promises = urls.map(url => 
+      fetch(url).then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+        return res.json();
+      })
+    );
+    
+    const results = await Promise.all(promises);
+    return results;
+    
+  } catch (error) {
+    console.error('Fetch failed:', error);
+    throw error;
+  }
+}
+
+// Usage
+const data = await fetchAll([
+  'https://api.example.com/users',
+  'https://api.example.com/products'
+]);</div>
+    <div class="tip"><p><strong>Bonus:</strong> If they ask "what if you want partial failures instead of failing all?" → Use <span class="b">Promise.allSettled()</span> instead — returns all results with <span class="b">{status: 'fulfilled'|'rejected', value|reason}</span>.</p></div>
+  </div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('ce4')"><div class="qt">Flatten a deeply nested array without using Array.flat().</div><span class="pill pa" style="flex-shrink:0">JS fundamentals</span><i class="ti ti-chevron-down cv" id="ice4" aria-hidden="true"></i></div>
+  <div class="cb" id="ce4">
+    <div class="al">Solution — two approaches</div>
+    <div class="code">// Recursive approach
+function flattenDeep(arr) {
+  return arr.reduce((flat, item) => {
+    return Array.isArray(item) 
+      ? flat.concat(flattenDeep(item)) 
+      : flat.concat(item);
+  }, []);
+}
+
+// Iterative (stack-based — avoids call stack overflow for huge arrays)
+function flattenIterative(arr) {
+  const stack = [...arr];
+  const result = [];
+  
+  while (stack.length) {
+    const item = stack.pop();
+    if (Array.isArray(item)) {
+      stack.push(...item);
+    } else {
+      result.unshift(item);
+    }
+  }
+  
+  return result;
+}
+
+console.log(flattenDeep([1, [2, [3, [4]], 5]])); // [1,2,3,4,5]</div>
+  </div></div></div>
+</div>
+
+<!-- WINNING TACTICS -->
+<div id="tips" class="sec">
+  <div class="good"><p><strong>The #1 thing that separates pass from fail in micro1's AI interview:</strong> Candidates who speak in trade-offs score senior. Candidates who give definitions score junior. Every answer should include "the trade-off here is..." or "I'd choose X over Y because..." — this is literally what triggers Zara's senior scoring rubric.</p></div>
+
+  <div class="ql">Proven tactics from 2025–26 candidate reports</div>
+
+  <div class="card"><div class="ch" onclick="t('tp1')"><div class="qt">The "keyword trap" — don't mention what you can't defend</div><span class="pill pr" style="flex-shrink:0">Critical</span><i class="ti ti-chevron-down cv" id="itp1" aria-hidden="true"></i></div>
+  <div class="cb" id="tp1"><div class="al">Adaptive branching defence</div><div class="at">Zara uses adaptive branching — it generates follow-up questions on any keyword you say. If you say "I used Kafka for messaging" → it will ask about partition rebalancing. If you say "I used Kubernetes" → it will ask about pod autoscaling. <strong>Only mention technologies you can answer 3 follow-up questions on.</strong><br><br>
+  Safe keywords for you: Angular, TypeScript, RxJS, Webpack Module Federation, Signals, Standalone Components, Node.js, REST APIs, PostgreSQL, Redis, GitLab CI, Cypress, Playwright, Docker. All of these are in your resume and you can defend them deeply.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('tp2')"><div class="qt">How to handle Zara interrupting you mid-answer</div><span class="pill pa" style="flex-shrink:0">Practical</span><i class="ti ti-chevron-down cv" id="itp2" aria-hidden="true"></i></div>
+  <div class="cb" id="tp2"><div class="al">VAD interruption handling</div><div class="at">Zara uses Voice Activity Detection and will interrupt if it thinks you've answered the core point, or if you pause too long. <strong>Do not say "sorry, let me finish."</strong> Just pivot immediately and answer the new question. Zara is scoring adaptability and responsiveness — treating its interruption as rude will register as a communication flag.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('tp3')"><div class="qt">Your opening 2-minute self-introduction — set the seniority frame immediately</div><span class="pill pr" style="flex-shrink:0">Sets your entire score baseline</span><i class="ti ti-chevron-down cv" id="itp3" aria-hidden="true"></i></div>
+  <div class="cb" id="tp3"><div class="al">Scripted opening</div><div class="at">"I'm Utkarsh, a Senior Fullstack Engineer with 10+ years building enterprise-scale web platforms. My primary depth is Angular — I've taken it from v4 to v20 at scale — combined with TypeScript, RxJS, and Webpack Module Federation for Micro Frontend architecture. On the backend, I work with Node.js REST APIs, Java microservices, and PostgreSQL. I've also integrated React within Angular shells for cross-team delivery. Most recently at LTTS for Halliburton, I led end-to-end delivery of a platform serving global oil and gas clients, where I solved performance challenges on 100k+ node data hierarchies, reduced build time by 69%, and built internal AI productivity tools using LLM APIs — which maps directly to this AI training-focused role."<br><br>
+  <strong>Why this works:</strong> It covers all JD keywords (React, Angular, Node.js, REST APIs, AI projects), signals seniority (architecture ownership, scale), and leads directly into the AI training relevance.</div></div></div>
+
+  <div class="card"><div class="ch" onclick="t('tp4')"><div class="qt">The trade-off formula — use it in every technical answer</div><span class="pill pg" style="flex-shrink:0">Seniority signal</span><i class="ti ti-chevron-down cv" id="itp4" aria-hidden="true"></i></div>
+  <div class="cb" id="tp4"><div class="al">Exact phrasing Zara rewards</div><div class="at">These phrases literally trigger senior-level scoring in Zara's rubric:<ul>
+  <li>"I'm choosing X here, accepting the trade-off of Y"</li>
+  <li>"This approach scales well for Z but the cost is..."</li>
+  <li>"In my experience, this pattern works until you hit [scale/condition] — at that point you'd want to..."</li>
+  <li>"The right answer depends on the context — if the team is small I'd go with X, at enterprise scale I'd choose Y because..."</li>
+  </ul>
+  Never give a single answer as the definitive truth. Always show you understand the constraints and alternatives.</div></div></div>
+</div>
+</div>
+
+<script>
+function sw(id){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+}
+function t(id){
+  const cb=document.getElementById(id);
+  const ic=document.getElementById('i'+id);
+  if(cb)cb.classList.toggle('o');
+  if(ic)ic.classList.toggle('o');
+}
+</script>
