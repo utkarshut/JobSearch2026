@@ -148,6 +148,9 @@
   .day-content strong { color: var(--text); }
 
   /* Highlight box */
+  .whitehighlight{
+    background: white !important;
+}
   .highlight { background: rgba(79,142,247,.07); border: 1px solid rgba(79,142,247,.2); border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
   .highlight.orange { background: rgba(247,147,79,.07); border-color: rgba(247,147,79,.2); }
   .highlight.green { background: rgba(45,212,168,.07); border-color: rgba(45,212,168,.2); }
@@ -957,7 +960,7 @@
     <div class="card">
       <div class="card-title">Accenture Technical Round Prep</div>
       <p>Complete preparation guide for Accenture's technical round, tailored to your profile.</p>
-      <div class="highlight">
+      <div class="highlight whitehighlight">
         <p>Click below to expand the full prep guide.</p>
         <button onclick="toggleAccenture()">Toggle Accenture Prep</button>
         <div id="accenture-content" style="display:none;">
@@ -968,7 +971,7 @@
      <div class="card">
       <div class="card-title">Micro1 Technical Round Prep</div>
       <p>Complete preparation guide for Micro1's technical round, tailored to your profile.</p>
-      <div class="highlight">
+      <div class="highlight whitehighlight">
         <p>Click below to expand the full prep guide.</p>
         <button onclick="toggleMicro1()">Toggle Micro1 Prep</button>
         <div id="micro1-content" style="display:none;">
